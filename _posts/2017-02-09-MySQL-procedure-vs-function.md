@@ -31,3 +31,5 @@ Differences between procedures and functions:
 
 --Stored procedure has the security and reduces the network traffic and also we can call stored procedure in any no. 
 of applications at a time.
+
+Next question is difference between function and stored function ?
