@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to Data Structures and Algorithms"
+title: "BigInteger Recursive Combination Method"
 date: 2017-02-21
 ---
 
