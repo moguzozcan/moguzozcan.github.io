@@ -9,8 +9,8 @@ In this post, I will tell you how to write the next permutation algorithm in Jav
 whereas C++ has <a href="http://www.cplusplus.com/reference/algorithm/next_permutation/">one.</a> So, we need to build our own method.
 This method can be used to sort data lexicographically. 
 
-There is a wikipedia <a href="https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order">link</a> I suggest you to read
-to better understand the topic. Now this algorithm is not as complex as it seems. The logic behind this is: 
+There is a wikipedia <a href="https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order">link</a> I suggest you to read to better understand the topic. Now this algorithm is not as complex as it seems. Moreover, this guy also explained very well
+<a href="https://www.nayuki.io/page/next-lexicographical-permutation-algorithm"> in his blog.</a>The logic behind this is: 
 
  -Sort the sequence in increasing order
  -Repeat the following algorithm until it returns false:
