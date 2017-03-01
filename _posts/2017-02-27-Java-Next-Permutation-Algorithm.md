@@ -19,16 +19,50 @@ to better understand the topic. Now this algorithm is not as complex as it seems
     Swap the value of a[k] with that of a[l].
     Reverse the sequence from a[k + 1] up to and including the final element a[n].
 
-
+So, an example code piece is like the following:
 
 ```java
-private static boolean isPalindrome(String word) {
-	StringBuilder sb = new StringBuilder(word);
-	String reversed = sb.reverse().toString();
-	if(word.equals(reversed)) {
-		return true;
-	} else {
-		return false;
-	}    
+public void nextPermutation(int[] nums) {
+    if(nums == null || nums.length<2)
+        return;
+ 
+    int p=0;            
+    for(int i=nums.length-2; i>=0; i--){
+        if(nums[i]<nums[i+1]){
+            p=i;
+            break;
+        }    
+    }
+ 
+    int q = 0;
+    for(int i=nums.length-1; i>p; i--){
+        if(nums[i]> nums[p]){
+            q=i;
+            break;
+        }    
+    }
+ 
+    if(p==0 && q==0){
+        reverse(nums, 0, nums.length-1);
+        return;
+    }
+ 
+    int temp=nums[p];
+    nums[p]=nums[q];
+    nums[q]=temp;
+ 
+    if(p<nums.length-1){
+        reverse(nums, p+1, nums.length-1);
+    }
+}
+ 
+public void reverse(int[] nums, int left, int right){
+    while(left<right){
+        int temp = nums[left];
+        nums[left]=nums[right];
+        nums[right]=temp;
+        left++;
+        right--;
+    }
 }
 ```
