@@ -27,5 +27,21 @@ class OuterClass {
 }
 ```
 
+Why we need nested classes:
+-If a class is only used by one class, then it is logical to use it as nested class.
+-Using nested class, we can apply one of the OOP concepts, that is encapsulation. 
+-It can increase code readability.
 
-<a href="http://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">Where</a> did I inspired all these stuff. 
+Static Nested Class:
+We can access static nested classes via outer class name, like that: ``` OuterClass.StaticNestedClass ```. If you would like to 
+access the elements of outer class, you need an object reference. This is the same idea in the static class methods, where you also
+cannot access the class elements. An example object creation of the static nested class:
+
+```java
+OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
+```
+
+Inner Class:
+
+
+<a href="http://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">Where</a> did I learned all these stuff. 
