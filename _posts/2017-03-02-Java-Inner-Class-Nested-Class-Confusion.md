@@ -42,6 +42,54 @@ OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
 ```
 
 Inner Class:
+Inner classes has direct access to outer classes objects and fields. Inner classes are like the other variables of the outer classes 
+and initialized by firstly defining the outer class: 
+```java
+OuterClass.InnerClass innerObject = outerObject.new InnerClass();
+```
+An inner class does not exists without an intance of the outer class. "Local Class" and "Anonymous Class" are two types of classes 
+of inner class.
+
+Local Class: 
+Local classes can be declared inside any type of block like for loop or if else clause or inside a method. There is a confusion on
+accessing the members of a local class. I will try to explain it in here. There is a big change in this topic after JDK 8, so let's divide into two:
+
+Before JDK 1.8:
+A local class has access to its enclosing, outer, class. Local classes has also access to local variables, but only the final variables. It is necessary for the local class to access a variable. Local classes "captures" that varaible.
+
+After JDK 1.8:
+With all the new updates, there is another update in Java 1.8. A term "effectively final" is introduced. If the value of a variable does not change after it's initialization, then that variable is called effectively final. If you want to access a non-final or non-effectivel-final variable, the Java compiler warns you like "local variables referenced from an inner class must be final or effectively final". 
+
+There is another important topic called shadowing. If the name of a variable is the same in outer and inner class, or even in the method, then to avoid confusion we must reach to those variable with some notation. The variable of the inner class shadows the variable of the outer class. Let's look at the following example:
+```java
+public class ShadowTest {
+
+    public int x = 0;
+
+    class FirstLevel {
+
+        public int x = 1;
+
+        void methodInFirstLevel(int x) {
+            System.out.println("x = " + x);
+            System.out.println("this.x = " + this.x);
+            System.out.println("ShadowTest.this.x = " + ShadowTest.this.x);
+        }
+    }
+
+    public static void main(String... args) {
+        ShadowTest st = new ShadowTest();
+        ShadowTest.FirstLevel fl = st.new FirstLevel();
+        fl.methodInFirstLevel(23);
+    }
+}
+```
+The following is the output of this example:
+
+x = 23
+this.x = 1
+ShadowTest.this.x = 0
+-Refer to member variables that enclose larger scopes by the class name to which they belong!!!
 
 
 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">Where</a> did I learned all these stuff. 
