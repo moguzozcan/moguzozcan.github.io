@@ -91,5 +91,14 @@ this.x = 1
 ShadowTest.this.x = 0
 -Refer to member variables that enclose larger scopes by the class name to which they belong!!!
 
+Some important features to remember:
+-Local classes are non-static, like inner classes, they cannot refer or contain any static member.
+-Local classes defined in static methods can only refer to static members of the enclosing class. ("non-static variable ... cannot be referenced from a static context."
+-Interface cannont  inside a block; interfaces are inherently static.
+-Static initializers or member interfaces are not allowed in a local class.
+-A local class can have static members provided that they are constant variables. (A constant variable is a variable of primitive type or type String that is declared final and initialized with a compile-time constant expression. 
+
+Anonymous Classes:
+
 
 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">Where</a> did I learned all these stuff. 
