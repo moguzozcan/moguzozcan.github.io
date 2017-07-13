@@ -28,5 +28,8 @@ for (int i = 1; i < ar.length; i++) {
 }
 ```
 
-
-
+Helpful links:
+https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif
+http://www.geeksforgeeks.org/insertion-sort/
+https://www.tutorialspoint.com/data_structures_algorithms/insertion_sort_algorithm.htm
+http://www.studytonight.com/data-structures/insertion-sorting
