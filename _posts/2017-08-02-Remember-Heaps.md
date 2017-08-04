@@ -25,7 +25,7 @@ Heaps are like special kind of trees. Heap has to follow some ordering property 
 
 1. Order property: For max heap; For every node n, the value in n is greater than or equal to the values in its children (and thus is also greater than or equal to all of the values in its subtrees). For min heap this is the opposite.
 
-2. The SHAPE property: All leaves are either at depth d or d-1 (for some value d). All of the leaves at depth d-1 are to the right of the leaves at depth d. (a) There is at most 1 node with just 1 child. (b) That child is the left child of its parent, and (c) it is the rightmost leaf at depth d. [4]
+2. Shape property: All leaves are either at depth d or d-1 (for some value d). All of the leaves at depth d-1 are to the right of the leaves at depth d. (a) There is at most 1 node with just 1 child. (b) That child is the left child of its parent, and (c) it is the rightmost leaf at depth d. [4]
 
 When we are talking about heaps, mostly binary heap is intended. Binary heap is a complete binary tree, meaning of complete is, all of the levels of the tree are full, except the last node, which may or may not be full depending on the case. 
 
@@ -35,6 +35,9 @@ right child is located at 2i + 2.
 References:
 
 [1] https://stackoverflow.com/questions/749199/when-would-i-want-to-use-a-heap
+
 [2] https://stackoverflow.com/questions/5227976/what-is-the-use-of-the-heap-data-structure
+
 [3] http://www.geeksforgeeks.org/priority-queue-set-1-introduction/
+
 [4] http://pages.cs.wisc.edu/~vernon/cs367/notes/11.PRIORITY-Q.html
