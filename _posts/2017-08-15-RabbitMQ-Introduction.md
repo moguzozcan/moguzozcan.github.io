@@ -24,7 +24,7 @@ The first tutorial is the very basic application, where there is one producer an
 receives it. Steps:
 
 1. Create a maven project from your IDE, I prefer IntelliJ IDEA. Then edit the parent pom for dependencies like this:
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -117,6 +117,8 @@ public class Recv {
     }
 }
 ```
+
+4.Firstly, run Send.java then run Recv.java and you will see that the messages are being sent w/out a problem.
 
 There are some important commands while using RabbitMQ Server, I've listed them here:
 -rabbitmq-server.bat : to start server
