@@ -24,6 +24,7 @@ The first tutorial is the very basic application, where there is one producer an
 receives it. Steps:
 
 1. Create a maven project from your IDE, I prefer IntelliJ IDEA. Then edit the parent pom for dependencies like this:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -47,6 +48,7 @@ receives it. Steps:
     </dependencies>
 </project>
 ```
+
 Don't forget to change your groupId and artifactId wrt to the names you select while creating the maven project.
 
 2. Create a Java class named "Send.java" and copy the following content. The official resource is giving some errors, they forget to 
