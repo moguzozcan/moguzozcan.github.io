@@ -23,7 +23,8 @@ You should consider upgrading via the 'python -m pip install --upgrade pip' comm
 9.0.1 version. 
 
 ```C:\Python\Python35>pip --version
-pip 9.0.1 from c:\python\python35\lib\site-packages (python 3.5)```
+pip 9.0.1 from c:\python\python35\lib\site-packages (python 3.5)
+```
 
 After that, I've written the very basic tf code. 
 
@@ -35,3 +36,5 @@ After that, I've written the very basic tf code.
 >>> print(sess.run(hello))
 b'Hello,TF!'
 ```
+
+Now, we are ready to dig deeper. I will follow the https://www.tensorflow.org/get_started/get_started link. 
