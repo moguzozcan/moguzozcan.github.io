@@ -41,15 +41,25 @@ git -c gc.reflogExpire=now gc --prune=all
 My question at SO. [3]
 
 [1] https://stackoverflow.com/questions/10622179/how-to-find-identify-large-files-commits-in-git-history/20609719
+
 [2] https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+
 [3] https://stackoverflow.com/questions/47901271/git-filter-branch-tree-filter-not-deleting-the-file
+
 [4] https://git-scm.com/docs/git-filter-branch#_checklist_for_shrinking_a_repository
+
 [5]https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo
+
 [6]https://gist.github.com/ariv3ra/16fd94e46345e62cfcbf
+
 [7]https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#The-Nuclear-Option:-filter-branch
+
 [8]https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository
+
 [9]https://readme.phys.ethz.ch/documentation/git_advanced_hints/
+
 [10] https://stackoverflow.com/questions/11255802/after-deleting-a-binary-file-from-git-history-why-is-my-repository-still-large
+
 [11] https://stackoverflow.com/questions/2116778/reduce-git-repository-size/2116892#2116892
 
 [12]https://github.com/18F/C2/issues/439
