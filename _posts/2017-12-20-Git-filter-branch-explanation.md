@@ -48,3 +48,8 @@ My question at SO. [3]
 [6]https://gist.github.com/ariv3ra/16fd94e46345e62cfcbf
 [7]https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#The-Nuclear-Option:-filter-branch
 [8]https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository
+[9]https://readme.phys.ethz.ch/documentation/git_advanced_hints/
+[10] https://stackoverflow.com/questions/11255802/after-deleting-a-binary-file-from-git-history-why-is-my-repository-still-large
+[11] https://stackoverflow.com/questions/2116778/reduce-git-repository-size/2116892#2116892
+
+[12]https://github.com/18F/C2/issues/439
