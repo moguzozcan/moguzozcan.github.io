@@ -29,6 +29,22 @@ git rev-list --objects --all \
 
 Now, the following step is to delete those folder and apply them in all branches. For that, I used 
 
-[1] https://stackoverflow.com/questions/10622179/how-to-find-identify-large-files-commits-in-git-history/20609719
 
-https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+```bash
+git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch name_of_file" --prune-empty -- --all
+
+rm -Rf .git/refs/original
+
+git -c gc.reflogExpire=now gc --prune=all
+```
+
+My question at SO. [3]
+
+[1] https://stackoverflow.com/questions/10622179/how-to-find-identify-large-files-commits-in-git-history/20609719
+[2] https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+[3] https://stackoverflow.com/questions/47901271/git-filter-branch-tree-filter-not-deleting-the-file
+[4] https://git-scm.com/docs/git-filter-branch#_checklist_for_shrinking_a_repository
+[5]https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo
+[6]https://gist.github.com/ariv3ra/16fd94e46345e62cfcbf
+[7]https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#The-Nuclear-Option:-filter-branch
+[8]https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository
