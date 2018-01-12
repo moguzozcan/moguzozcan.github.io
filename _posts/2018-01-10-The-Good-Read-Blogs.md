@@ -15,3 +15,7 @@ After this post, a lot has changed in Netflix. https://medium.com/netflix-techbl
 https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
 
 http://defragdev.com/blog/?p=783
+
+A post about git branching strategy, which then became the most used branching strategy in the world. Worth to read.
+
+http://nvie.com/posts/a-successful-git-branching-model/
