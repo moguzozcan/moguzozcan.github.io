@@ -23,3 +23,7 @@ http://nvie.com/posts/a-successful-git-branching-model/
 A medium post about the gradle wrapper for those who have confusion about it and what it really does
 
 https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7
+
+A clear page about git and mostly used git commands
+
+https://www.git-tower.com/blog/git-cheat-sheet/
