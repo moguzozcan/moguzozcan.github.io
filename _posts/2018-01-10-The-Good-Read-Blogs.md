@@ -19,3 +19,7 @@ http://defragdev.com/blog/?p=783
 A post about git branching strategy, which then became the most used branching strategy in the world. Worth to read.
 
 http://nvie.com/posts/a-successful-git-branching-model/
+
+A medium post about the gradle wrapper for those who have confusion about it and what it really does
+
+https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7
