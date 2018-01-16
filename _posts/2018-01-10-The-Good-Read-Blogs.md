@@ -27,3 +27,7 @@ https://medium.com/@bherbst/understanding-the-gradle-wrapper-a62f35662ab7
 A clear page about git and mostly used git commands
 
 https://www.git-tower.com/blog/git-cheat-sheet/
+
+A medium post about "Modern Network Balancing and Proxy" includes lots of information 
+
+https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236
