@@ -69,3 +69,4 @@ Git find creator of the branch remote
 
 git for-each-ref --format='%(color:cyan)%(authordate:format:%m/%d/%Y %I:%M %p)    %(align:25,left)%(color:yellow)%(authorname)%(end) %(color:reset)%(refname:strip=3)' --sort=authordate refs/remotes
 
+https://gist.github.com/StefanoAgazzi/98c232b109312e837277d4b52e189cf9
