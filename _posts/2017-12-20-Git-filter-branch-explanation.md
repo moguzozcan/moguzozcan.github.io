@@ -63,3 +63,9 @@ My question at SO. [3]
 [11] https://stackoverflow.com/questions/2116778/reduce-git-repository-size/2116892#2116892
 
 [12]https://github.com/18F/C2/issues/439
+
+
+Git find creator of the branch remote 
+
+git for-each-ref --format='%(color:cyan)%(authordate:format:%m/%d/%Y %I:%M %p)    %(align:25,left)%(color:yellow)%(authorname)%(end) %(color:reset)%(refname:strip=3)' --sort=authordate refs/remotes
+
