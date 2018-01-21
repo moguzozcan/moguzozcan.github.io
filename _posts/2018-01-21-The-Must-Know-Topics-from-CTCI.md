@@ -64,5 +64,18 @@ private Node deleteNode(Node head, int data) {
     }
     return head;
 }
+```
     
+Binary Trees:
+
+Not all binary trees are binary search trees. Why trees are used, because the data you want to store forms a tree, like filesystem.
+
+```
+class Node {
+    int data;
+    Node left, right;
+}
+```
+
+
 
