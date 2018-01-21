@@ -36,4 +36,33 @@ class Node {
 }
 ```
 
+Add a node to sll:
+```
+private void appendToTail(Node n) {
+    Node node = this;
+    while(node.next != null) {
+        node = node.next;
+    }
+    node.next = n;
+ }
+```
+
+Delete a node from sll:
+
+```
+private Node deleteNode(Node head, int data) {
+    Node tmp = head;
+    if(head == null) {
+        return null;
+    }
+    while(head.next != null) {
+        if(head.data == data) {
+            head.next = head.next.next;
+            return head;
+        }
+        tmp = tmp.next;
+    }
+    return head;
+}
+    
 
