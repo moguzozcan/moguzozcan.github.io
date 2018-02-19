@@ -83,14 +83,39 @@ Depth first traversal:
 
 Pre-order Traversal:
 ```java
-public void preOrderTraversal() {
-    
+public void preOrderTraversal(Node node) {
+    if(head == null) {
+        return;
+     }
+     //Do something, like print, count etc., this is where current node is processed
+     preOrderTraversal(node.left);
+     preOrderTraversal(node.right);
 }
 ```
 
-In-order Traversal
+In-order Traversal:
+```java
+public void preOrderTraversal(Node node) {
+    if(head == null) {
+        return;
+     }
+     preOrderTraversal(node.left);
+     //Do something, like print, count etc., this is where current node is processed
+     preOrderTraversal(node.right);
+}
+```
 
-Post-order Traversal
+Post-order Traversal:
+```java
+public void preOrderTraversal(Node node) {
+    if(head == null) {
+        return;
+     }
+     preOrderTraversal(node.left);
+     preOrderTraversal(node.right);
+     //Do something, like print, count etc., this is where current node is processed
+}
+```
 
 Breadth first Traversal
 
