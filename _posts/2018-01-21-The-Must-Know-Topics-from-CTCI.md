@@ -77,7 +77,7 @@ class Node {
 }
 ```
 
-Tree traversal's are very important, there are depth first and breath first traversal algorithm's exist,
+Tree traversal's are very important and easy to understand. At top, there are two types of algorithms, depth first and breath first traversal algorithm's. As name suggest depth first algorithm's first goes to as deeper as they can, whereas breath first traversal algortihms process trees level by level. 
 
 Depth first traversal:
 
@@ -95,29 +95,40 @@ public void preOrderTraversal(Node node) {
 
 In-order Traversal:
 ```java
-public void preOrderTraversal(Node node) {
+public void inOrderTraversal(Node node) {
     if(head == null) {
         return;
      }
-     preOrderTraversal(node.left);
+     inOrderTraversal(node.left);
      //Do something, like print, count etc., this is where current node is processed
-     preOrderTraversal(node.right);
+     inOrderTraversal(node.right);
 }
 ```
 
 Post-order Traversal:
 ```java
-public void preOrderTraversal(Node node) {
+public void postOrderTraversal(Node node) {
     if(head == null) {
         return;
      }
-     preOrderTraversal(node.left);
-     preOrderTraversal(node.right);
+     postOrderTraversal(node.left);
+     postOrderTraversal(node.right);
      //Do something, like print, count etc., this is where current node is processed
 }
 ```
 
-Breadth first Traversal
-
-
-
+Breadth first Traversal or Level order traversal:
+```java
+public void levelOrderTraversal(Node node) {
+    Queue<Node> queue = new LinkedList<Node>();
+    queue.add(node);
+    Node tempNode;
+    while(!queue.isEmpty()) {
+        //Do something, like print, count etc., this is where current node is processed
+        if(n.left != null)
+            queue.add(n.left);
+        if(n.right ! = null)
+            queue.add(n.right);         
+    }
+}
+```
