@@ -77,5 +77,22 @@ class Node {
 }
 ```
 
+Tree traversal's are very important, there are depth first and breath first traversal algorithm's exist,
+
+Depth first traversal:
+
+Pre-order Traversal:
+```java
+public void preOrderTraversal() {
+    
+}
+```
+
+In-order Traversal
+
+Post-order Traversal
+
+Breadth first Traversal
+
 
 
