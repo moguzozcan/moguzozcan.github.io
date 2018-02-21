@@ -13,11 +13,11 @@ remote_theme: "mmistakes/minimal-mistakes"
 locale                   : "en-US"
 title                    : "M. Oguz Ozcan's Personal Website"
 title_separator          : "-"
-name                     : "M. Oguz Ozcan" 
+name                     : "M. Oguz Ozcan"
 description              : "Personal Website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://moguzozcan.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "moguzozcan/moguzozcan.github.io"  # GitHub username/repo-name e.g. 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -92,12 +92,12 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
+  name             : "M. Oguz Ozcan"
+  avatar           : "/assets/images/600px.jpg"
+  bio              : "Software Engineer"
+  location         : "İstanbul, TR"
   email            :
-  uri              :
+  uri              : "https://moguzozcan.github.io/"
   home             : # null (default), "absolute or relative url to link to author home"
   bitbucket        :
   codepen          :
@@ -105,16 +105,16 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "https://github.com/moguzozcan"
   gitlab           :
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
+  linkedin         :  "muhammet-oguz-ozcan-796b2a37" 
   pinterest        :
   soundcloud       :
-  stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
+  stackoverflow    : "3943839/m-oğuz-Özcan" 
   steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
   tumblr           :
   twitter          :
