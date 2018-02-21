@@ -15,7 +15,7 @@ title                    : "M. Oguz Ozcan's Personal Website"
 title_separator          : "-"
 name                     : "M. Oguz Ozcan"
 description              : "Personal Website."
-url                      : "moguzozcan"
+url                      : "https://moguzozcan.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "moguzozcan/moguzozcan.github.io"  # GitHub username/repo-name e.g. 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
