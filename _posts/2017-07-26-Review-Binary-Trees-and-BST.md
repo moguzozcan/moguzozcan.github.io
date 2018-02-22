@@ -1,7 +1,9 @@
 ---
-layout: post
 title: "Review Binary Trees and Binary Search Trees"
 date: 2017-07-26
+categories: 
+  - Jekyll
+---
 ---
 
 Hi guys, 

@@ -1,7 +1,9 @@
 ---
-layout: post
 title: "Implementing a Queue from Two Stacks Algorithm"
 date: 2017-07-26
+categories: 
+  - Jekyll
+---
 ---
 
 Hi guys, 

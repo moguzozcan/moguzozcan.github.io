@@ -1,7 +1,9 @@
 ---
-layout: post
 title: "MySQL Procedure vs. Function"
 date: 2017-02-09
+categories: 
+  - Jekyll
+---
 ---
 
 One of the most mixed topics in sql word is the difference between procedure (also called stored procedures, because they are stored

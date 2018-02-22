@@ -1,7 +1,9 @@
 ---
-layout: post
 title: "Remember Heaps"
 date: 2017-08-02
+categories: 
+  - Jekyll
+---
 ---
 
 Today's Cracking the Coding Interview Challenge is <a href="https://www.hackerrank.com/challenges/ctci-find-the-running-median"> 

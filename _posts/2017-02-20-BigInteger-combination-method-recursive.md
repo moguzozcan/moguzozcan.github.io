@@ -1,7 +1,9 @@
 ---
-layout: post
 title: "BigInteger Recursive Combination Method"
 date: 2017-02-20
+categories: 
+  - Jekyll
+---
 ---
 
 Hello guys,

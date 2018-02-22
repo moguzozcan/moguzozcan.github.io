@@ -1,7 +1,9 @@
 ---
-layout: post
 title: "Array Left Rotation Algorithm in Java"
 date: 2017-07-20
+categories: 
+  - Jekyll
+---
 ---
 
 While I was working in Hackerrank, today I've started to solve "Cracking the Coding Interview Challenges". The first challenge is left 

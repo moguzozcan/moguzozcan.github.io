@@ -1,7 +1,9 @@
 ---
-layout: post
 title: "Finding K-complementary pairs in an integer array, Java"
 date: 2017-02-08
+categories: 
+  - Jekyll
+---
 ---
 
 Hi,

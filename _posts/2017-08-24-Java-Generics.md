@@ -1,7 +1,9 @@
 ---
-layout: post
 title: "Java Generics"
 date: 2017-08-24
+categories: 
+  - Jekyll
+---
 ---
 
 Generics occured in https://www.hackerrank.com/challenges/30-generics/problem this challenge, so that I quickly want to remember that.
