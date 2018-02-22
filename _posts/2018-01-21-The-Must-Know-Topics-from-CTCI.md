@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Must Know Topics from CTCI"
 date: 2018-01-21
 categories: 
