@@ -1,6 +1,7 @@
 ---
 permalink: /about/
 title: "About"
+layout: splash
 last_modified_at: 2018-01-10T11:22:24-05:00
 ---
 
