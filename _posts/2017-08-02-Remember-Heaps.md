@@ -4,7 +4,6 @@ date: 2017-08-02
 categories: 
   - Jekyll
 ---
----
 
 Today's Cracking the Coding Interview Challenge is <a href="https://www.hackerrank.com/challenges/ctci-find-the-running-median"> 
 Heaps: Find the Running Median.</a> Heaps have always been a confusion for me. Today is the day to end this! 

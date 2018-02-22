@@ -4,7 +4,6 @@ date: 2017-08-10
 categories: 
   - Jekyll
 ---
----
 
 Today's Cracking the Coding Interview Challenge is <a href="https://www.hackerrank.com/challenges/ctci-find-the-running-medianhttps://www.hackerrank.com/challenges/ctci-bubble-sort/problem"> 
 Sorting: Bubble Sort.</a> Sorting is one of the most important topics in SE. Bubble sort is the easiest sorting algorithm in terms of 

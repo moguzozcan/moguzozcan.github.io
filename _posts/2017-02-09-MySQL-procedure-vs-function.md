@@ -4,7 +4,6 @@ date: 2017-02-09
 categories: 
   - Jekyll
 ---
----
 
 One of the most mixed topics in sql word is the difference between procedure (also called stored procedures, because they are stored
 in the db :) ) and function. In this post I will try to examine them.

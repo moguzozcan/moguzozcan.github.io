@@ -4,7 +4,6 @@ date: 2017-02-08
 categories: 
   - Jekyll
 ---
----
 
 In this post, I will go over the SQL Function creation process, for this MySQL data types must also be revised. 
 The mostly used MySQL data types are:

@@ -4,7 +4,6 @@ date: 2017-07-23
 categories: 
   - Jekyll
 ---
----
 
 When I was solving the third challenge in Cracking the Coding Interview tasks in hackerrank, I've come accross with HashTables. Then I 
 realized that I forget the difference between HashMap and HashTable in Java. So, in this post firstly I'll explain their differences

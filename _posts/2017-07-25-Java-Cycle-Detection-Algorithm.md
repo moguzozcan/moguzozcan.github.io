@@ -4,7 +4,6 @@ date: 2017-07-25
 categories: 
   - Jekyll
 ---
----
 
 Hi guys, 
 In this post I will talk about the cycle detection in linked lists. I've seen this problem in the Cracking the Coding Interview 

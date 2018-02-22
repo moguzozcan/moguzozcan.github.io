@@ -4,7 +4,6 @@ date: 2017-02-08
 categories: 
   - Jekyll
 ---
----
 
 Today I've received a task from a company to get a remote job. One of the questions was, "Write an efficient algorithm to check if
 a string is palindrome, if the string matches the reverse of a string.". There are three ways of doing this as I can think of, but

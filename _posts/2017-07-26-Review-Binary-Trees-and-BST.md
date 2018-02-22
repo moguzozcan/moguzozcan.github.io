@@ -4,7 +4,6 @@ date: 2017-07-26
 categories: 
   - Jekyll
 ---
----
 
 Hi guys, 
 In this post I will review the BT and BST topics. I've seen this problem in the Cracking the Coding Interview  

@@ -4,7 +4,6 @@ date: 2017-10-11
 categories: 
   - Jekyll
 ---
----
 
 At work we had a situation that some of our used shared project should be in the artifactory, but we do not have any artifactory yet :) 
 So what we were doing is pushing the output jars into pTML by building from command line with 'gradle clean build pTML' command. However,

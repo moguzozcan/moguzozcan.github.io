@@ -4,7 +4,6 @@ date: 2017-03-02
 categories: 
   - Jekyll
 ---
----
 
 Hello everyone,
 For a very long time, I could not really figure out the inner class or nested class stuff. In this post I'll try to understand and 

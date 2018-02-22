@@ -4,7 +4,6 @@ date: 2017-02-20
 categories: 
   - Jekyll
 ---
----
 
 Hello guys,
 This post will be small. I just encounter a problem where I need to find combination of a number and results would be big that cannot 

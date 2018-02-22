@@ -4,7 +4,6 @@ date: 2017-07-14
 categories: 
   - Jekyll
 ---
----
 
 Quick sort algorithm is a kind of divide and conquer algoritm. Quick sort is also known as Partition-exchange sort. There are three 
 important elements in the quick sort. 

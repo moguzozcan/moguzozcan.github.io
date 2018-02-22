@@ -4,7 +4,6 @@ date: 2017-02-10
 categories: 
   - Jekyll
 ---
----
 
 Today, I was dealing with another question, and I needed to sort a HashMap in Java. I realized that I've niether tried nor needed sorting
 a map in Java!. Then, I decided to work and search on it and write this down in my blog. There is no built-in function to sort a map. 

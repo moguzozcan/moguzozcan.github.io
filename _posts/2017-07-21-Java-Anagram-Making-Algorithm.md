@@ -4,7 +4,6 @@ date: 2017-07-21
 categories: 
   - Jekyll
 ---
----
 
 I've started to work on 30 days of coding challange in hackerrank. The 2nd challange I've solved was is "Given two strings,  
 and , that may or may not be of the same length, determine the minimum number of character deletions required to make  and  

@@ -4,7 +4,6 @@ date: 2017-02-21
 categories: 
   - Jekyll
 ---
----
 
 In this post, I'll talk about the DS and Algorithms topic in general. These topics are the core of the "Computer Science", so they need to
 be learn carefully. DS effects memory and algorithm effects the CPU of the machine, so choosing the right DS and algorithm is critical

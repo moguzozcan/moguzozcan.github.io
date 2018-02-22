@@ -4,7 +4,6 @@ date: 2017-12-20
 categories: 
   - Jekyll
 ---
----
 
 In our project, two of our collegues mistakenly pushed big files into our repository. One of them was a huge debian package, which was
 around 750 MB size and one jar file which was around 50 MB size. So, our .git folder was around 1 GB size. Although we delete those files

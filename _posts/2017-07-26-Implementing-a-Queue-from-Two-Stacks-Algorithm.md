@@ -4,7 +4,6 @@ date: 2017-07-26
 categories: 
   - Jekyll
 ---
----
 
 Hi guys, 
 In this post I will talk about the implementing a queue data sturcture from existing data structures called stacks and I need to use two

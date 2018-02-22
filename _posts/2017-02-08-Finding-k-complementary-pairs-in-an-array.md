@@ -4,7 +4,6 @@ date: 2017-02-08
 categories: 
   - Jekyll
 ---
----
 
 Hi,
 This is the second post today, it is again related with the interview question that I've received. The question is "Write an 
