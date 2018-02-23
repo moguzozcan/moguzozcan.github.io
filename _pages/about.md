@@ -1,8 +1,7 @@
 ---
-permalink: /about
+permalink: /about/
 title: "About Me"
 last_modified_at: 2018-01-10T11:22:24-05:00
-layout: single
 ---
 
 I was born in 12 June 1990 in Rize, Turkey. I studied Electrical and Electronics Engineering at
