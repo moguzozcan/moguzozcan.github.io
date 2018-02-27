@@ -45,3 +45,13 @@ Compute the Jaccard bag similarity of each pair of the following three bags: {1,
 1 & 2 = {1, 1, 2} / {1, 1, 1, 2, 1, 1, 2, 2, 3} = 3 / 9
 2 & 3 = {1, 2, 3} / {1, 1, 2, 2, 3, 1, 2, 3, 4} = 3 / 9
 1 & 3 = {1, 2} / {1, 1, 1, 2, 1, 2, 3, 4} = 2 / 8
+
+
+Shingling of Documents
+
+k-Shingles
+Suppose our document D is the string abcdabd, and we pick k = 2. Then the set of 2-shingles for D is {ab, bc, cd, da, bd}
+Note that the substring ab appears twice within D, but appears only once as a shingle. A variation of shingling produces a bag, rather than a set, so each shingle would appear in the result as many times as it appears in the document. However, we shall not use bags of shingles here.
+
+white space (blank, tab, newline,
+etc.) is treated to replace any sequence of one or more white-space characters by a single blank.
