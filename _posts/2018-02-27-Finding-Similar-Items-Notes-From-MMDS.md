@@ -53,5 +53,16 @@ k-Shingles
 Suppose our document D is the string abcdabd, and we pick k = 2. Then the set of 2-shingles for D is {ab, bc, cd, da, bd}
 Note that the substring ab appears twice within D, but appears only once as a shingle. A variation of shingling produces a bag, rather than a set, so each shingle would appear in the result as many times as it appears in the document. However, we shall not use bags of shingles here.
 
-white space (blank, tab, newline,
-etc.) is treated to replace any sequence of one or more white-space characters by a single blank.
+white space (blank, tab, newline, etc.) is treated to replace any sequence of one or more white-space characters by a single blank.
+
+Choosing the Shingle Size
+If k is too small most sequences of k characters to appear in most documents. 
+k should be picked large enough that the probability of any given shingle appearing in any given document is low.
+For e-mails k = 5 is selected and this means 14,348,907 possible shingles. An e mail includes much more less than this value. A good rule of thumb says consider character number as 20 and so thath 20^5. For large documents as research articles k = 9 is considered as safe.
+
+Matrix Representation of Sets
+Characteristic matrix: The columns of the matrix correspond to the sets, and the rows correspond to elements of the universal set from which elements of the sets are drawn. There is a 1 in row r and column c if the element for row r is a member of the set for column c. Otherwise the value in position (r, c) is 0.
+
+Minhashing
+
+
