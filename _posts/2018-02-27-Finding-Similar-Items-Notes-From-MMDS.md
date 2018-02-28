@@ -5,13 +5,13 @@ categories:
   - Jekyll
 ---
 
-A fundamental data-mining problem is to examine data for “similar” items.
+In this post, I will share my notes for the Big Data Analytics course chapter three which is Finding Similar Items. A fundamental data-mining problem is to examine data for “similar” items. There are three essential techniques to find similar documents. They are:
 
 Shingling:
 Find textually similar documents by finding sets with a relatively large document.
 
 Minhashing:
-Compress data sets and still be able to deduce the similarity of the underlying sets.
+Compress data sets to short signatures(list of integers) and still be able to deduce the similarity of the underlying sets. 
 
 Locality sensitive hashing:
 Focus search on pairs that are most likely to be similar.
