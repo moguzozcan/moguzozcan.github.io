@@ -23,7 +23,7 @@ MapReduce is made of three steps.
 2. Group by key: Sorting, shuffling etc.
 3. Reduce: Aggregare, summarize, filter or transform and then give the output.
 
-In this post, I'll explain how to accomplish a matrix multiplication task with map reduce model. There are two ways of doing this. In one Map and Reduce part, or using two Map and Reduce tasks. The latter one is like a natural join followed by grouping and aggregation.  
+In this post, I'll explain how to accomplish a matrix multiplication task with map reduce model. There are two ways of doing this. In one Map and Reduce part, or using two Map and Reduce tasks. The latter one is like a natural join followed by grouping and aggregation. Let's first talk about the two steps calculation since this is easier one.  
 
 Since matrix multiplication is done with row of the first matrix, let's call it M with size i * j, and column of the second matrix, 
 call this one N with j * k, we need to make them group based on a key. This key has to be the j. In the map part, we need to create 
@@ -31,4 +31,5 @@ all the key value pairs for M (j, (M, i, m<sub>ij</sub>) and for N (j, (N, k, n<
 
 Now after the first step, we need to make a grouping and aggregation part. The map part here is just the identity. It basically does nothing but producing the same key value pairs for every (i, k) keys and v values. In the Reduce part, for each key (i, k) the sum of the values are calculated and assigned to this key. The result of the calculation is ((i, k), v) where v is the total sum which corresponds to the element (i, k) of the result matrix.
 
-
+Matrix Multiplication with One MapReduce Step:
+This is possible by doing more work in the two functions.
