@@ -38,12 +38,17 @@ The bag-similarity of bags {a, a, a, b} and {a, a, b, b, c} is 1/3. The intersec
 Compute the Jaccard similarities of each pair of the following three sets: {1, 2, 3, 4}, {2, 3, 5, 7}, and {2, 4, 6}.
 
 1 & 2 = {2, 3} / {1, 2, 3, 4, 5, 7} = 2 / 6
+
 2 & 3 = {2} / {2, 3, 4, 5, 6, 7} = 1 / 6
+
 1 & 3 = {2, 4} / {1, 2, 3, 4, 6} = 2 / 5
 
 Compute the Jaccard bag similarity of each pair of the following three bags: {1, 1, 1, 2}, {1, 1, 2, 2, 3}, and {1, 2, 3, 4}
+
 1 & 2 = {1, 1, 2} / {1, 1, 1, 2, 1, 1, 2, 2, 3} = 3 / 9
+
 2 & 3 = {1, 2, 3} / {1, 1, 2, 2, 3, 1, 2, 3, 4} = 3 / 9
+
 1 & 3 = {1, 2} / {1, 1, 1, 2, 1, 2, 3, 4} = 2 / 8
 
 
@@ -65,4 +70,9 @@ Characteristic matrix: The columns of the matrix correspond to the sets, and the
 
 Minhashing
 
+
+This is the apriori property: any subset of frequent itemset must be frequent. 
+So if you know at level 2 that the sets {1,2}, {1,3}, {1,5} and {3,5} are the only sets with sufficient support, then at level 
+3 you join these with each other to produce {1,2,3}, {1,2,5}, {1,3,5} and {2,3,5} but you need only consider {1,3,5} further: 
+the others each have subsets with insufficent support (such as {2,3} or {2,5} ).
 
