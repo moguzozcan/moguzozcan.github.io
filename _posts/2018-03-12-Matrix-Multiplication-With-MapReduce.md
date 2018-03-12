@@ -10,5 +10,15 @@ file system called GFS, which is Google File System. It basically consists of Ma
 Chunk servers, the size of servers changes between 16 to 64 MB and the data is replicated for reliability. The cluster architecture is 
 shown below:
 
-![Cluster image]({{ site.url }}{{ site.baseurl }}/assets/images/gfs.jpg)
+Generally the number of Map functions is bigger than the size of servers and number of Reduce functions is less than number of Map functions. 
+
+MapReduce is made of three steps. 
+
+1. Map: Extract something that is required
+2. Group by key: Sorting, shuffling etc.
+3. Reduce: Aggregare, summarize, filter or transform and then give the output.
+
+In this post, I'll explain how to accomplish a matrix multiplication task with map reduce model. 
+
+
 
