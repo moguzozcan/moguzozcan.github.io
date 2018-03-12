@@ -10,6 +10,13 @@ file system called GFS, which is Google File System. It basically consists of Ma
 Chunk servers, the size of servers changes between 16 to 64 MB and the data is replicated for reliability. The cluster architecture is 
 shown below:
 
+```html
+<figure>
+    <a href="/assets/images/gfs.jpg"><img src="/assets/images/gfs.jpg"></a>
+    <figcaption>Google File System architecture</figcaption>
+</figure>
+```
+
 Generally the number of Map functions is bigger than the size of servers and number of Reduce functions is less than number of Map functions. 
 
 MapReduce is made of three steps. 
@@ -20,5 +27,6 @@ MapReduce is made of three steps.
 
 In this post, I'll explain how to accomplish a matrix multiplication task with map reduce model. 
 
+Since matrix multiplication is done with row of the first matrix, let's call it M, and column of the second matrix, call this one N. 
 
 
