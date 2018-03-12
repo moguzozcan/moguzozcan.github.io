@@ -26,6 +26,8 @@ MapReduce is made of three steps.
 In this post, I'll explain how to accomplish a matrix multiplication task with map reduce model. 
 
 Since matrix multiplication is done with row of the first matrix, let's call it M with size i * j, and column of the second matrix, 
-call this one N with j * k, we need to make them group based on a key. This key has to be the j. 
+call this one N with j * k, we need to make them group based on a key. This key has to be the j. In the map part, we need to create 
+all the key value pairs for M (j, (M, i, m<sub>ij</sub>) and for N (j, (N, k, n<sub>jk</sub>). Here the M and N does not represent the whole matrix, they are
+the names of the matrixes. In the Reduce part, for each key value pair, take one that includes M and take another that includes N which have the same j value. Then create a new pair (i, j) as the key and the product of 
 
 
