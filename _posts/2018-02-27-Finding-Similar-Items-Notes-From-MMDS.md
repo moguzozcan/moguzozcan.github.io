@@ -26,7 +26,7 @@ The Jaccard similarity of sets S and T is |S ∩ T |/|S ∪ T |, that is, the ra
 Similarity of Documents
 The aspect of similarity we are looking at here is character-level similarity, not “similar meaning,” which requires us to examine the words in the documents and their uses.
 
-Some examples of near-neighbor searuchPlagiarism, Mirror Pages, Articles from the Same Source
+Some examples of near-neighbor search Plagiarism, Mirror Pages, Articles from the Same Source
 
 Collaborative Filtering as a Similar-Sets Problem
 A process whereby we recommend to users items that were liked by other users who have exhibited similar tastes.
@@ -70,9 +70,52 @@ Characteristic matrix: The columns of the matrix correspond to the sets, and the
 
 Minhashing
 
+To minhash a set represented by a column of the characteristic matrix, pick a permutation of the rows. The minhash value of any column is the number of the first row, in the permuted order, in which the column has a 1.
+
+Minhashing and Jaccard Similarity
+There is a remarkable connection between minhashing and Jaccard similarity
+of the sets that are minhashed.
+
+• The probability that the minhash function for a random permutation of
+rows produces the same value for two sets equals the Jaccard similarity
+of those sets.
+
+Locality-Sensitive Hashing
+
+We can calculate the probability that these
+documents (or rather their signatures) become a candidate pair as follows:
+1. The probability that the signatures agree in all rows of one particular
+band is s^r.
+2. The probability that the signatures disagree in at least one row of a particular
+band is 1 − s^r.
+3. The probability that the signatures disagree in at least one row of each
+of the bands is (1 − s^r)^b.
+4. The probability that the signatures agree in all the rows of at least one
+band, and therefore become a candidate pair, is 1 − (1 − s^r)^b.
+
+
+Distance Measures:
+Euclidean Distances
+
+Jaccard Distance
+d(x, y) = 1 − SIM(x, y).
+
+Cosine Distance
+Let our two vectors be x = [1, 2,−1] and = [2, 1, 1]. The dot
+product x.y is 1 × 2 + 2 × 1 + (−1) × 1 = 3. The L2-norm of both vectors is √6. For example, x has L2-norm p12 + 22 + (−1)2 = √6. Thus, the cosine of
+the angle between x and y is 3/(√6√6) or 1/2. The angle whose cosine is 1/2
+is 60 degrees, so that is the cosine distance between x and y.
+
+
+Edit Distance
+This distance makes sense when points are strings. The distance between two
+strings x = x1x2 · · · xn and y = y1y2 · · · ym is the smallest number of insertions
+and deletions of single characters that will convert x to y.
 
 This is the apriori property: any subset of frequent itemset must be frequent. 
 So if you know at level 2 that the sets {1,2}, {1,3}, {1,5} and {3,5} are the only sets with sufficient support, then at level 
 3 you join these with each other to produce {1,2,3}, {1,2,5}, {1,3,5} and {2,3,5} but you need only consider {1,3,5} further: 
 the others each have subsets with insufficent support (such as {2,3} or {2,5} ).
+
+Hamming Distance
 
