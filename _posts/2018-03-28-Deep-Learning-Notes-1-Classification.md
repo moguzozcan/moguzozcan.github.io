@@ -22,6 +22,10 @@ Image classification is one of the areas in Deep Learning at like other areas th
 it is impossible to write an algorithm which detects the cats in images, we kind of need learning method. This is done by
 using big data sets, actually they are called training datasets which includes images and labels of the images.
 
+1. Collect a dataset of images and labels
+2. Use Machine Learning to train a classifier
+3. Evaluate the classifier on new images
+
 The image classification pipeline:
 Basically, image classification takes an image as array and assign a label to it. 
 
@@ -35,9 +39,40 @@ This is one of the basic methods in image classification problems.
 We need comparing methods to compare two images for equality. One of the choice is L1 distance. For imageS I<sub>1</sub> and I<sub>2</sub> the L1 distance is defined as the following, this formula is also called as Manhattan Distance, since the streets of the Manhattan is all perpendicular to each other.
 
 <figure>
-    <a href="/assets/images/L1Distance.jpg"><img src="/assets/images/L1Distancegfs.jpg"></a>
+    <a href="/assets/images/L1Distance.jpg"><img src="/assets/images/L1Distance.jpg"></a>
     <figcaption>L1 Distance equation</figcaption>
 </figure>
+
+There are many other distances in the field. Let's explain another very common one which L2 distance. It measures the euclidean distance between two vectors as follows:
+
+<figure>
+    <a href="/assets/images/L2Distance.jpg"><img src="/assets/images/L2Distance.jpg"></a>
+    <figcaption>L2 Distance equation</figcaption>
+</figure>
+
+L1 vs. L2 distances:
+L2 distance does not accept big difference, it rather prefers many medium sized disagreements. 
+
+k - Nearest Neighbor Classifier
+
+
+Validation sets for Hyperparameter tuning
+How to select k for k-nearest neighbor classifier?
+How to select which distance metric to use, L1 L2 distance?
+
+These choices are called hyperparameters and how to select them are not obvious in many cases.
+
+The key idea here is create a validation set among the training set and use them for a fake test to tune hyperparameters.
+For instance, the CIFAR-10 data set includes 50000 training images and 10000 test images. 1000 of the training images can be used to test the trained network before doing the actual test to tune hyperparameters. 
+
+Before that let's explain what are those sets. Mainly there are 3 types of data sets.
+
+1. Training set: It is used to train your network.
+2. Validation set: This is a small portion of your train set to tune hyperparameters before doing the actual test.
+3. Test set: This is the real test data to measure the accuracy of the trained network.
+
+If the test data is used for training the what is called overfitting occurs. If the test data is only used for testing then it is a very good resource for generalization of the classifier.
+
 
 References 
 
