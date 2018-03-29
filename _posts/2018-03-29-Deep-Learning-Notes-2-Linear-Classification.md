@@ -1,6 +1,6 @@
 ---
-title: "Deep Learning Notes 1 Classificaiton"
-date: 2018-03-28
+title: "Deep Learning Notes 2 Linear Classificaiton"
+date: 2018-03-29
 categories: 
   - Jekyll
 ---
@@ -39,14 +39,14 @@ This is one of the basic methods in image classification problems.
 We need comparing methods to compare two images for equality. One of the choice is L1 distance. For imageS I<sub>1</sub> and I<sub>2</sub> the L1 distance is defined as the following, this formula is also called as Manhattan Distance, since the streets of the Manhattan is all perpendicular to each other.
 
 <figure>
-    <a href="/assets/images/l1distance.jpg"><img src="/assets/images/l1distance.jpg"></a>
+    <a href="/assets/images/L1Distance.jpg"><img src="/assets/images/L1Distance.jpg"></a>
     <figcaption>L1 Distance equation</figcaption>
 </figure>
 
 There are many other distances in the field. Let's explain another very common one which L2 distance. It measures the euclidean distance between two vectors as follows:
 
 <figure>
-    <a href="/assets/images/l2distance.jpg"><img src="/assets/images/l2distance.jpg"></a>
+    <a href="/assets/images/L2Distance.jpg"><img src="/assets/images/L2Distance.jpg"></a>
     <figcaption>L2 Distance equation</figcaption>
 </figure>
 
