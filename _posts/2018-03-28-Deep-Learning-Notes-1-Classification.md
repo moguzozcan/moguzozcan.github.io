@@ -71,8 +71,19 @@ Before that let's explain what are those sets. Mainly there are 3 types of data 
 2. Validation set: This is a small portion of your train set to tune hyperparameters before doing the actual test.
 3. Test set: This is the real test data to measure the accuracy of the trained network.
 
-If the test data is used for training the what is called overfitting occurs. If the test data is only used for testing then it is a very good resource for generalization of the classifier.
+If the test data is used for training the what is called overfitting occurs. If the test data is only used for testing then it is a very good resource for generalization of the classifier.  
 
+Cross validation: If the data set in hand is small, then another tecnique is used to train the classifier. For example, the small data set is divided into 5 equal folds, this is called 5-hold cross-validation, then we use the 4 for training and use the 1 for validation. 
+
+<figure>
+    <a href="/assets/images/crossvalidation.jpeg"><img src="/assets/images/crossvalidation.jpeg"></a>
+    <figcaption>Cross validation with 5 folds</figcaption>
+</figure>
+
+Pros and Cons of Nearest Neighbor classifier.
+It is easy to understand and implement nearest neighbor classifier. Also, the train time is shorter. However, the drawback of it is, it takes much time to test it with real test data. In testing phase, it compares test data with every training example. In reality we want the opposite. The training time can be time consuming but the real test phase should be fast.
+
+Computational complexity of the Nearest Neighbor classifier is an active area of research, and several Approximate Nearest Neighbor (ANN) algorithms and libraries exist that can accelerate the nearest neighbor lookup in a dataset 
 
 References 
 
