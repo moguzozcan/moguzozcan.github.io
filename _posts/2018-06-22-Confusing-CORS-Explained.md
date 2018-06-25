@@ -15,7 +15,7 @@ A very basic image that explains this idea is shown below:
 
 <figure>
     <a href="/assets/images/CORSRequest.png"><img src="/assets/images/CORSRequest.png"></a>
-    <figcaption>Sigmoid non-linearity function</figcaption>
+    <figcaption>Image that explains CORS request</figcaption>
 </figure>
 
 The Spring page also explains this topic in a very neat way. The same-origin policy is an important security concept implemented by web browsers to prevent Javascript code from making requests against a different origin (e.g., different domain) than the one from which it was served. Although the same-origin policy is effective in preventing resources from different origins, it also prevents legitimate interactions between a server and clients of a known and trusted origin.[3]
@@ -94,8 +94,8 @@ public class MyConfiguration {
 
 **References**
 
-[1] https://www.w3.org/Security/wiki/Same_Origin_Policy
-[1] https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
-[3] https://spring.io/understanding/CORS
-[4] https://medium.com/@buddhiv/what-is-cors-or-cross-origin-resource-sharing-eccbfacaaa30
+[1] https://www.w3.org/Security/wiki/Same_Origin_Policy  
+[2] https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS  
+[3] https://spring.io/understanding/CORS  
+[4] https://medium.com/@buddhiv/what-is-cors-or-cross-origin-resource-sharing-eccbfacaaa30  
 [5] https://spring.io/blog/2015/06/08/cors-support-in-spring-framework
