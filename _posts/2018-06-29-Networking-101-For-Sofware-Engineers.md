@@ -5,11 +5,27 @@ categories:
   - Jekyll
 ---
 
-The networking is always one of the hardest topic for the software engineers. There are too many jargon words around and the whole idea does not quite understandable. Here I'll explaine those jargon words from some of the sources on the net that I found valuable.
+The networking is always one of the hardest topic for the software engineers. There are too many jargon words around and the whole idea does not quite understandable. Here I'll explaine those jargon words from some of the sources on the net that I found valuable. This post will be mix of the all questions that I have in my mind and I found them by googling. I hope this posts helps some people who are struggling with networking. 
+
+Firstly, why we need networking? This is the first question we had. There are PC's, Servers, Printer and many other devices out there needs communication. Therefore, we need to connect them and communicate over them. 
+
+**Local Area Network (LAN) vs. Wide Area Network (WAN)**
+
+Both LAN and WAN allows interconnectivity between computers. 
+
+LAN as the name suggest stands for local networks like home, business or school. LAN's are faster and more secure than WAN. LANs are controlled and managed by some in-house organization or people. 
+
+WAN covers larger areas, like cities, nations etc. WAN requires two or more LAN to be connected over internet or some connection. The Internet is an example of a worldwide public WAN.
+
+There is also MAN (metropolitan area network) which is a larger network that usually spans several buildings in the same city or town. The IUB network is an example of a MAN. But, personally, I do not think this term is so important. 
+
+[7]
+
 
 
 Layers:
 There are two models:
+
 **OSI Layer** Developed by telecommunications industry 7 Layers, Numbered
 
 **TCP/IP** Developed by US and UK military 4 layers, Named
@@ -56,6 +72,43 @@ Steps of DNS
 
 
 **DHCP Server**
+Another term that is heard a lot in the network domain is DHCP Server. DHCP stands for Dynamic Host Configuration Protocol. It is used to provide automatic and fast ip distribution in a network. It is also the central management for this task. If there would not be a DHCP server, all the clients need to configure network parameters by themselves. DHCP also configures the subnet mask, default gateway and DNS server. 
+
+Mostly, routers act as DHCP servers, but in some cases generally in big networks a dedicated computer might be used as a DHCP server. The process of getting an IP from a DHCP server for a device is as follows:
+
+1. Device sends DHCPDISCOVER request to server
+
+2. Server responds DHCPOFFER packet with the necessary information inside
+
+3. Device sends DHCPREQUEST packet to accept the offer
+
+4. Finally DHCPserver sends ACK (or NACK) to confirm (or not) device has that IP.
+
+
+**Pros and Cons of DHCP Server:**
+
+- Get rid of burden of setting network configurations manually.
+ 
+- Decrease change of getting same IP addresses for two devices.
+
+- There is also a burden of unassigning the IP address if setted manually before.
+
+- There can be a need for static IP settings which is done manually, like printers 
+
+
+
+**What is subnet mask?**
+Basically, subnet mask divides the IP address into two parts, the network address and the host address. This way, the network becomes more manageable in terms of the floating traffic. For example, let's assume there will be a communication between two devices with the following IP addresses. 192.168.1.1 to 192.168.1.200. If the subnet mask of these two devices are 255.255.255.0, this means that they are in the same network. The 255's in the subnet mask defines the address of the network, which the same for all the devices that are in the same subnet. In the previous example, subnet mask was 255.255.255.0, in this case "192.168.1" is the address of the network, and the last octet is address of the host. If subnet mask would be 255.255.0.0 then "192.168" would be address of the network and the last two octet would be the address of the host. 
+
+What is the difference if two devices are in the same subnet mask?
+
+If two devices are in the same subnet mask, the communication between them is done by the broadcast. Broadcast sends the messages that arises from one device to all the devices in the network. If the subnet is larger the occurred traffic will consume more network. 
+
+**What is default gateway?**
+The default IP address is the private IP address assigned to the router that the network uses. 
+
+**What is a DNS Server?**
+
 
 
 **Gateway and Bridge**
@@ -70,21 +123,9 @@ A network gateway joins two networks so the devices on one network can communica
 After reading and learning some stuff the following question arises? Since the both is very similar to each other, what are the differences between switch and bridge?
 
 **Switch vs. Bridge**
-They are both Level 2 devices
-A bridge looks at the destination of the frame before sending, if the destination address is not on the other side of the bridge it will not transmit the data across. This helps break up one large broadcast domain into 2 by using one bridge device.
+They are both Level 2 devices. A bridge looks at the destination of the frame before sending, if the destination address is not on the other side of the bridge it will not transmit the data across. This helps break up one large broadcast domain into 2 by using one bridge device. A bridge make its decision in software (done by the Main Processor) and a switch make is decision in hardware. Bridge is designed to connect multiple networks.
 
- 
-
-A switch has multiple ports in which each port is its own collision domain, a switch will determine the source and destination of the incoming data and switch it to the port it needs to go to. Switch ports can be broken into many separate broadcast domains using vlans. A switch is more efficient in today's large networks.
-
-
-A bridge make its decision in software (done by the Main Processor) and a switch make is decision in hardware.
-
-Bridge...Design to connect multiple network
-
-Switch...Design to connect End devices
-
-
+A switch has multiple ports in which each port is its own collision domain, a switch will determine the source and destination of the incoming data and switch it to the port it needs to go to. Switch ports can be broken into many separate broadcast domains using vlans. A switch is more efficient in today's large networks. Switch is designed to connect end devices. [6]
 
 
 **References**
@@ -98,3 +139,7 @@ Switch...Design to connect End devices
 [4] https://www.youtube.com/watch?v=mpQZVYPuDGU - How DNS Works?
 
 [5] https://internetofthingsagenda.techtarget.com/definition/gateway 
+
+[6] https://learningnetwork.cisco.com/thread/41392
+
+[7] https://www.diffen.com/difference/LAN_vs_WAN
