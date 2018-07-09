@@ -92,6 +92,33 @@ public class MyConfiguration {
 }
 ```
 
+To configure CORS settings in UI side, some configurations are also needed. Here I'll give configurations for the AngularJS.
+
+
+```json
+{
+  "/api/*": {
+    "target": "http://host:port/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
+```
+
+
+
+package.json
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve  --host 0.0.0.0 --port 1234 --proxy-config proxy.conf.json",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+
+
 **References**
 
 [1] https://www.w3.org/Security/wiki/Same_Origin_Policy  

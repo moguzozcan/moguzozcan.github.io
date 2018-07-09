@@ -108,7 +108,7 @@ If two devices are in the same subnet mask, the communication between them is do
 The default IP address is the private IP address assigned to the router that the network uses. 
 
 **What is a DNS Server?**
-
+DNS server (aka name server, nameserver, or domain name system server) is a computer server that is responsible for storing the public IP addresses and their corresponding hostnames. It is mainly used to resolve and translate the hostnames into the public IP addresses. 
 
 
 **Gateway and Bridge**
