@@ -2,7 +2,7 @@
 title: "Networking-101-For-Sofware-Engineers"
 date: 2018-06-29
 categories: 
-  - Jekyll
+  - Networking
 ---
 
 The networking is always one of the hardest topic for the software engineers. There are too many jargon words around and the whole idea does not quite understandable. Here I'll explaine those jargon words from some of the sources on the net that I found valuable. This post will be mix of the all questions that I have in my mind and I found them by googling. I hope this posts helps some people who are struggling with networking. 

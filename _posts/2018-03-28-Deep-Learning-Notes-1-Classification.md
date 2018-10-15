@@ -2,7 +2,7 @@
 title: "Deep Learning Notes 1 Classificaiton"
 date: 2018-03-28
 categories: 
-  - Jekyll
+  - Image Classification, Deep Learning
 ---
 
 In this post, I'll share my notes in CS231N course that is thought at Stanford University. 

@@ -2,7 +2,7 @@
 title: "Deep Learning Notes 2 Linear Classificaiton"
 date: 2018-03-29
 categories: 
-  - Jekyll
+  - Linear Classification, Deep Learning
 ---
 
 In this post, I'll coptinue to share my notes in CS231N course that is thought at Stanford University. 

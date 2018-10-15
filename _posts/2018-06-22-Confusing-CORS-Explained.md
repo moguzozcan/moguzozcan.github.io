@@ -2,7 +2,7 @@
 title: "Confusing CORS Explained"
 date: 2018-06-22
 categories: 
-  - Jekyll
+  - Cross Origin Resource Sharing, CORS
 ---
 
 I have always been confused with the CORS errors and in this post I'll try to share my understanding of CORS for now.

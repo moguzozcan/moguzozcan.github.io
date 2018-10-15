@@ -2,7 +2,7 @@
 title: "Deep Learning Notes 5 Neural Networks Part 2"
 date: 2018-03-30
 categories: 
-  - Jekyll
+  - Deep Learning, Neural Networks
 ---
 
 In this post, I'll coptinue to share my notes in CS231N course that is thought at Stanford University. 
