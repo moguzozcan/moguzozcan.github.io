@@ -24,7 +24,7 @@ Partition means something that is divided or separate or divide something. If th
     <figcaption>VENN Diagram of the CAP Theorem</figcaption>
 </figure>
 
-#Wikipedia explanation:
+**Wikipedia explanation**
 
 CAP theorem is found by computer scientist Eric Brewer at 2000 and theorem is also named Brewer's theorem after. Theorem states that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees:
 
@@ -37,7 +37,7 @@ Partition tolerance: The system continues to operate despite an arbitrary number
 In particular, the CAP theorem implies that in the presence of a network partition, one has to choose between consistency and availability. Note that consistency as defined in the CAP theorem is quite different from the consistency guaranteed in ACID database transactions. [3]
 
 
-#Run Around Clerk: 
+**Run Around Clerk** 
 
 Clerk means writer, recorder or office worker. Eventual consistency can be provided with a run around clerk. This is a backgroud task that works to update the nodes without affecting their work and provides synchronization of the all nodes. Many NoSQL systems are working like that. However, for a small period of time consistency may not be provided. But, if there is too less time between an update and a select or get request. 
 
