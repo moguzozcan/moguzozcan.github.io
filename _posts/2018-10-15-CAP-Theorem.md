@@ -17,7 +17,7 @@ The system should return to any call without any errors.
 
 3. Partition Tolerance
 
-If the connection between the node is lost, the system should work without affecting. 
+Partition means something that is divided or separate or divide something. If the connection between the node is lost, the system should work without affecting. In this case partition means if the true data is divided between nodes, they should return the correct information.
 
 <figure>
     <a href="/assets/images/cap_theorem.jpeg"><img src="/assets/images/cap_theorem.jpeg"></a>
