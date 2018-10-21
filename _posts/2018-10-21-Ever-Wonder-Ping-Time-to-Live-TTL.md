@@ -11,10 +11,6 @@ Have you ever wonder what is the meaning of TTL, that occurs when you ping a web
     <a href="/assets/images/PingTTL.png"><img src="/assets/images/PingTTL.png"></a>
 </figure>
 
-<figure>
-    <figcaption>Ping TTL</figcaption>
-</figure>
-
 Lastly, in Distributed Systems and Cloud Computer lecture, my instructer mentioned about that. Then I made a research about it to learn more. Maybe I will not use it in my life again but it got my attention :) 
 
 **According to [1]**
