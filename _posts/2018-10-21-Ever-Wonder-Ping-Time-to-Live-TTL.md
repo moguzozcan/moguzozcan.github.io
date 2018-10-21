@@ -9,6 +9,9 @@ Have you ever wonder what is the meaning of TTL, that occurs when you ping a web
 
 <figure>
     <a href="/assets/images/PingTTL.png"><img src="/assets/images/PingTTL.png"></a>
+</figure>
+
+<figure>
     <figcaption>Ping TTL</figcaption>
 </figure>
 
@@ -32,5 +35,3 @@ There are the default TTL values of different Operating Systems. The most common
 [1] https://subinsb.com/default-device-ttl-values/
 
 [2] https://en.wikipedia.org/wiki/Time_to_live
-
-[3] https://en.wikipedia.org/wiki/CAP_theorem
