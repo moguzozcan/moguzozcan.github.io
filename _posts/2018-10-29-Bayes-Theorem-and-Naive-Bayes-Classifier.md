@@ -1,6 +1,6 @@
 ---
 title: "Bayes Theorem and Naive Bayes Classifier"
-date: 2018-10-15
+date: 2018-10-29
 categories: 
   - Bayes Theorem, Naive Bayes Classifier, Sentiment Analysis, Natural Language Processing
 ---
@@ -47,6 +47,14 @@ What is P(A|B)? We know that die 2 is a 1. So the only way for the sum to be 7 i
 **Naive Bayes' Theorem**
 
 The term naive is used for real because there is a naive assumption is this theorem, which usually is not correct in real world, but makes the computation very easy. Therefore, it is highly used while solving real world problems. The naive assumption is all the events are *independent* of each other. 
+
+Therefore Naïve Bayes Classifier makes two 
+simplifying assumptions
+1. Bag of Words Assumption
+Assume word position doesn’t matter
+2. Conditional Independence (Naïve Bayes) Assumption
+Assume the feature probabilities 𝑃(𝑓𝑖|𝑐) are 
+independent given the class 𝑐
 
 
 **References**
