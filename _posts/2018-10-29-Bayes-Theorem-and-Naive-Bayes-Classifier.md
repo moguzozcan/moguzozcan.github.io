@@ -13,17 +13,17 @@ P(A,B) is called the joint probability distribution in probability theory. This 
 
 **Bayes Theorem**
 
-P(A|B) is the conditional probability. It means the probability of A given B occurred. So, when we are certain that event B happen, what is the probability that event A will occur. This is sometimes hard to compute. However, Bayes' rule enables us to compute P(A|B) in terms of P(B|A), which we may already know. Sometimes P(a)=P(A|B), and this is when events A and A are statistically independent.
+P(A\|B) is the conditional probability. It means the probability of A given B occurred. So, when we are certain that event B happen, what is the probability that event A will occur. This is sometimes hard to compute. However, Bayes' rule enables us to compute P(A\|B) in terms of P(B\|A), which we may already know. Sometimes P(a)=P(A\|B), and this is when events A and A are statistically independent.
 
-- P(A|B) is called *posterior belief*, probability of event after evidence is seen
+- P(A\|B) is called *posterior belief*, probability of event after evidence is seen
 
 - P(A) is called *prior belief* or *priori*, probability of event A before evidence is seen 
 
-- P(B|A) is called *likelihood* that is B will occur if A is true
+- P(B\|A) is called *likelihood* that is B will occur if A is true
 
 - P(B) is called *evidence*
 
-P(A|B) = ( P(A)*P(B|A) ) / P(B) 
+P(A\|B) = ( P(A)*P(B\|A) ) / P(B) 
 
 Which tells us:	 	how often A happens given that B happens, written P(A|B)
 When we know:	 	  how often B happens given that A happens, written P(B|A)
@@ -42,7 +42,7 @@ Suppose we are throwing 2 6-sided dice and suppose that condition 'A' is the the
 
 What is P(A,B)? There is only 1 way in which this can happen and it is die 2 must show a 1, and the other a 6. As there are 36 possibilities that we all assume to have equal probability, *P(A,B)* = 1/36.
 
-What is P(A|B)? We know that die 2 is a 1. So the only way for the sum to be 7 is for die 1 to be a 6. As there are 6 possibilities for die 1, *P(A|B)* = 1/6 [2]
+What is P(A\|B)? We know that die 2 is a 1. So the only way for the sum to be 7 is for die 1 to be a 6. As there are 6 possibilities for die 1, *P(A\|B)* = 1/6 [2]
 
 **Naive Bayes' Theorem**
 
@@ -51,9 +51,9 @@ The term naive is used for real because there is a naive assumption is this theo
 Therefore Naïve Bayes Classifier makes two 
 simplifying assumptions
 1. Bag of Words Assumption
-Assume word position doesn’t matter
+    Assume word position doesn’t matter
 2. Conditional Independence (Naïve Bayes) Assumption
-Assume the feature probabilities 𝑃(𝑓𝑖|𝑐) are 
+    Assume the feature probabilities 𝑃(𝑓𝑖|𝑐) are 
 independent given the class 𝑐
 
 
