@@ -36,7 +36,7 @@ When we know:	 	  how often B happens given that A happens, written P(B|A)
     <figcaption>Example application of Bayes Theorem to predict rain [1]</figcaption>
 </figure>
 
-**Difference between P(A|B) and P(A,B)**
+**Difference between P(A\|B) and P(A,B)**
 
 Suppose we are throwing 2 6-sided dice and suppose that condition 'A' is the the numbers of the top faces of the two dice sum up to 7, and condition 'B' is that die number 2 shows 1. 
 
