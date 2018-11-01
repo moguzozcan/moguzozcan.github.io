@@ -68,8 +68,17 @@ Web pages that combine and aggregate data from different sources. Well-known mas
 
 **1.2 Design goals**
 
+Goals of DS:
+
+1. Supporting resource sharing
+2. Making distribution transparent
+3. Being open
+4. Being scalable
+
+**Supporting resource sharing**
 Resources can be virtually anything, peripherals (çevre birimler), storage facilities, data, ﬁles, services, and networks. Making distribution transparent is one aim of DS.
 
+**Making distribution transparent**
 **Types of distribution transparency**
 
 *Transparency*          |*Description*
@@ -81,6 +90,66 @@ Replication             |Hide that an object is replicated
 Concurrency             |Hide that an object may be shared by several independent users
 Failure                 |Hide the failure and recovery of an object
 
+**Access transparency**
+
+Hiding differences in data representation and the way that objects can be accessed. Different OS and naming conventions, file operations or low-level communication with other processes must be hidden from user and apps. 
+
+**Location transparency**
+
+Users cannot tell where an object is physically located in the system. Achieved by assigning only logical names to resources, that is, names in which the location of a resource is not secretly encoded. Uniform resource locator (URL) http://www.prenhall.com/index.html, which gives no clue about the actual location of Prentice Hall’s main Web server
+
+**Relocation transparency**
+
+If the entire site may have been moved from one data center to another, users should not notice. This is becoming increasingly important in the context of cloud computing.
+
+**Migration transparency**
+
+Supports the mobility of processes and resources initiated by users, without affecting ongoing communication and operations. Communication between mobile phones, regardless whether two people are actually moving, mobile phones will allow them to continue their conversation. Online tracking and tracing of goods as they are being transported from one place to another, and teleconferencing (partly) using devices that are equipped with mobile Internet.
+
+**Replication transparency**
+
+Resources may be replicated to increase availability or to improve performance by placing a copy close to the place where it is accessed. Hiding the fact that several copies of a resource exist, or that several processes are operating in some form of lockstep mode so that one can take over when another fails. All replicas have the same name. A system that supports replication transparency should generally support location transparency as well.
+
+**Concurrency transparency**
+
+Two independent users may each have stored their ﬁles on the same file server or may be accessing the same tables in a shared database and each user does not notice that the other is making use of the same resource.
+
+**Failure transparency**
+
+A user or application does not notice that some piece of the system fails to work properly, and that the system subsequently (and automatically) recovers from that failure.
+
+**Being Open**
+
+A system that offers components that can easily be used by, or integrated into other systems. At the same time, an open distributed system itself will often consist of components that originate from elsewhere.
+
+**Interoperability, composability, and extensibility**
+
+Deﬁne services through interfaces using an **Interface Deﬁnition Language (IDL)**
+
+**Interoperability** characterizes the extent by which two implementations of systems or components from different manufacturers can co-exist and work together by merely relying on each other’s services as speciﬁed by a common standard
+
+**Portability** characterizes to what extent an application developed for a distributed system A can be executed, without modiﬁcation, on a different distributed system B
+that implements the same interfaces as A. 
+
+**Extensible** easy to add new components or replace existing ones without affecting those components that stay in place. An open distributed system should also be extensible. Easy to add parts that run on a different operating system, or even to replace an entire file system
+
+**Separating policy from mechanism**
+
+System be organized as a collection of relatively small and easily replaceable or adaptable components. Monolithic approach, the older way of development does not provide this.
+
+**Caching in Web browsers**
+
+Need to consider, Storage, Exemption, Sharing and Refreshing topics. Need to offer a rich set of parameters that the user can set (dynamically).
+
+Trade-off: Strict separation of policies and mechanisms may lead to *highly complex conﬁguration* problems. To solve this, provide reasonable defaults. Self-conﬁgurable systems.
+
+**Being scalable**
+
+**Size scalability:** Easily add more users and resources to the system without any noticeable loss of performance.
+
+**Geographical scalability:** Users and resources may lie far apart, but the fact that communication delays may be significant is hardly noticed.
+
+**Administrative scalability:** Easily managed even if it spans many independent administrative organizations.
 
 
 
@@ -88,6 +157,31 @@ Failure                 |Hide the failure and recovery of an object
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Power usage effectiveness (PUE)** is a ratio that describes how efficiently a computer data center uses energy; specifically, how much energy is used by the computing equipment (in contrast to cooling and other overhead). PUE was originally developed by a consortium called The Green Grid. [2]
+
+<figure>
+    <a href="/assets/images/PUE.svg"><img src="/assets/images/PUE.svg"></a>
+    <figcaption>Power Usage Efficiency Formula</figcaption>
+</figure>
 
 
 
@@ -95,3 +189,5 @@ Failure                 |Hide the failure and recovery of an object
 **References**
 
 [1] Andrew S. Tanenbaum and Maarten van Steen. 2006. Distributed Systems: Principles and Paradigms (2nd Edition). Prentice-Hall, Inc., Upper Saddle River, NJ, USA.
+
+[2] https://en.wikipedia.org/wiki/Power_usage_effectiveness
