@@ -146,26 +146,212 @@ Trade-off: Strict separation of policies and mechanisms may lead to *highly comp
 **Being scalable**
 
 **Size scalability:** Easily add more users and resources to the system without any noticeable loss of performance.
+• The computational capacity, limited by the CPUs
+• The storage capacity, including the I/O transfer rate
+• The network between the user and the centralized service
+
+Size scalability problems for centralized services can be formally analyzed using queuing theory
+
+
+**λ requests per second** processing capacity of the service is µ requests per second fraction
+
+**Average throughput X** is equal to λ
+
+**Utilization U** of a service as the fraction of time that it is busy
+
+**Response time R:** how long does it take before the service to process a request, including the time spent in the queue
+
+R = 1 / (1 - U)
 
 **Geographical scalability:** Users and resources may lie far apart, but the fact that communication delays may be significant is hardly noticed.
 
-**Administrative scalability:** Easily managed even if it spans many independent administrative organizations.
+Problems of Geographical scalability
 
+1. Local-area networks based on Synchronous communication In this form of communication, a party requesting service, generally referred to as a client, blocks until a reply is sent back from the server implementing the service
 
+2. Communication in wide-area networks is inherently much less reliable than in local-area networks.
 
+3. Wide-area systems, we need to develop separate services, such as *naming* and *directory services* to which queries can be sent. These support services, in turn, need to be scalable as well and in many cases no obvious solutions exist as we will encounter in later chapters.
 
+**Administrative scalability:** Easily managed even if it spans many independent administrative organizations. Conflicting policies with respect to resource usage (and payment), management, and security needs to be solved. For example, for many years scientists have been looking for solutions to share their (often expensive) equipment in what is known as a **computational grid**. In these grids, a global distributed system is constructed as a federation of local distributed systems, allowing a program running on a computer at organization A to directly access resources at organization B.
 
+If a distributed system expands to another domain, two types of security measures need to be taken. 
 
+- First, the distributed system has to protect itself against malicious attacks from the new domain. Only read access to the file system in its original domain. 
 
+- Second, the new domain has to protect itself against malicious attacks from the distributed system. 
 
+**Scaling techniques**
 
+In DS, scalibility problems occur because of limited capacity of servers and network. 
 
+1. Scaling up: Increasing memory, upgrading CPUs, or replacing network modules) 
 
+2. Scaling out: Expanding the distributed system by essentially deploying more machines, there are basically only three techniques can be applied: 
 
+    - Hiding communication latencies: applicable in the case of *geographical scalability*. Instead of waiting for a response in the server-side use *asynchronous communication*. In *interactive applications* asynchronous communication cannot be applied. If this is the case, moving part of the computation that is normally done at the server to the client process requesting the service, could be one improvement. 
 
+<figure>
+    <a href="/assets/images/PushCodeToClient.png"><img src="/assets/images/PushCodeToClient.png"></a>
+</figure>
 
+    - Distribution of work Partitioning and distribution: taking a component, splitting it into smaller parts, and subsequently spreading those parts across the system. Internet Domain Name System (DNS). The names in each zone are handled by a single name server. Tree of domains, nonoverlapping zones. *Naming service* is distributed accross machines. Second example is, World Wide Web is partitioned and distributed across a few hundred million servers. Only because of this distribution of documents that the Web has been capable of scaling to its current size.
 
+<figure>
+    <a href="/assets/images/DNS.png"><img src="/assets/images/DNS.png"></a>
+</figure>
 
+    - Replication: Balance the load between components leading to better performance. Geographically widely dispersed systems, having a copy nearby can hide much of the communication latency problems. **Caching** is a special form of replication. Caching is making a copy of a resource, in the proximity of the client accessing that resource. Unlike replication, caching is a decision made by the client of a resource. Caching and replication leads to **consistency**problems. 
+
+Electronic stock exchanges and auctions, requires consistency. Replication requires global synchronization mechanism. 
+
+**Pitfalls**
+
+Peter Deutsch, at the time working at Sun Microsystems, formulated these ﬂaws as the following false assumptions that everyone makes when developing a distributed application for the first time:
+
+• The network is reliable
+
+• The network is secure
+
+• The network is homogeneous
+
+• The topology does not change
+
+• Latency is zero
+
+• Bandwidth is inﬁnite
+
+• Transport cost is zero
+
+• There is one administrator
+
+**1.3 Types of distributed systems**
+
+distributed computing systems, distributed information systems, and pervasive systems
+
+**High performance distributed computing**
+
+**Cluster computing** the underlying hardware consists of a collection of similar workstations or PCs, closely connected by means of a high-speed local-area network, each node runs the same operating system.
+
+**Grid computing** This subgroup consists of distributed systems that are often constructed as a federation of computer systems, where each system may fall under a different administrative domain, and may be very different when it comes to hardware, software, and deployed network technology. Next step is to outsource entire infrastructure and this ends up in *cloud computing*.
+
+**Note 1.8 (More information: Parallel processing)**
+
+High-performance computing started with the introduction of multiprocessor machines. Multiple CPUs are organized in such a way that they all have access to the same physical memory. Multicomputer system several computers are connected through a network and there is no sharing of main memory. The shared-memory model proved to be highly convenient for improving the performance of programs and it was relatively easy to program. Distributed shared-memory multicomputers (DSM system). In essence, a DSM system allows a processor to address a memory location at another computer as if it were local memory
+
+<figure>
+    <a href="/assets/images/SharePrivateMemory.PNG"><img src="/assets/images/SharePrivateMemory.PNG"></a>
+</figure>
+
+**Cluster computing**
+
+Became popular when price/performance ratio of personal computers and workstations improved. One of the feature of CC is its homogeneity, the computers in a cluster are largely the same, have the same operating system, and are all connected through the same network.
+
+<figure>
+    <a href="/assets/images/ClusterComputing.PNG"><img src="/assets/images/ClusterComputing.PNG"></a>
+</figure>
+
+**Grid computing**
+
+<figure>
+    <a href="/assets/images/GridComputing.PNG"><img src="/assets/images/GridComputing.PNG"></a>
+</figure>
+
+No assumptions are made concerning similarity of hardware, operating systems, networks, administrative domains, security policies. Virtual organization
+
+<figure>
+    <a href="/assets/images/LayeredArchitectureGridComputing.PNG"><img src="/assets/images/LayeredArchitectureGridComputing.PNG"></a>
+</figure>
+
+*Fabric layer:* Provides interfaces to local resources at a specific site.
+
+*Connectivity layer:* Communication protocols for supporting grid transactions that span the usage of multiple resources.
+
+*Resource layer:* Manages a single resource using the functions provided by the connectivity layer and calls directly the interfaces made available by the fabric layer.
+
+*Collective layer:* Handling access to multiple resources and typically consists of services for resource discovery, allocation and scheduling of tasks onto multiple resources, data replication, and so on.
+
+*Application layer:* Applications that operate within a virtual organization.
+
+Service-oriented architecture - Open Grid Services Architecture (OGSA) 
+
+**Cloud computing**
+
+**Utility computing** by which a customer could upload tasks to a data center and be charged on a per-resource basis. Utility computing formed the basis for what is now called cloud computing. "Easily usable and accessible pool of virtualized resources". *Pay-per-use* model in which guarantees are offered by means of customized service level agreements (SLAs).
+
+<figure>
+    <a href="/assets/images/CluodComputing.PNG"><img src="/assets/images/CluodComputing.PNG"></a>
+</figure>
+
+Hardware: Manage the necessary hardware: processors, routers, but also power and cooling systems. Implemented at data centers and contains the resources that
+customers normally never get to see directly. 
+
+Infrastructure: Provide customers an infrastructure consisting of virtual storage and computing resources. 
+
+Platform: Platform layer provides to a cloud-computing customer what an operating system provides to application developers, namely the means to easily develop and deploy applications that need to run in a cloud. Amazon S3 storage system is offered to theapplication developer in the form of an API allowing (locally created)
+ﬁles to be organized and stored in buckets. 
+
+Application: Actual applications run in this layer and are offered to users for further customization. (text processors, spreadsheet applications, presentation
+applications, and so on). Applications are again executed in the vendor’s cloud. 
+
+• Infrastructure-as-a-Service (IaaS) covering the hardware and infrastructure layer
+• Platform-as-a-Service (PaaS) covering the platform layer
+• Software-as-a-Service (SaaS) in which their applications are covered
+
+Cloud computing has some serious obstacles like: provider lock-in, security and privacy issues, and dependency on the availability of service.
+
+**Distributed information systems**
+
+For networked applications, interoperability turned out to be a painful experience. Apps communicate with each other and provide services to remote apps called clients. Distributed transactions. This lead to Enterprise Application Integration (EAI).
+
+**Distributed transaction processing**
+
+Operations on a database are carried out in the form of *transactions*. Remote procedure calls(RPCs), that is, procedure calls to remote servers, are often also encapsulated in a transaction, leading to what is known as a transactional RPC.
+
+Example primitives for transactions:
+
+Primitive               |Description
+BEGIN_TRANSACTION       |Mark the start of a transaction
+END_TRANSACTION         |Terminate the transaction and try to commit
+ABORT_TRANSACTION       |Kill the transaction and restore the old values
+READ                    |Read data from a ﬁle, a table, or otherwise
+WRITE                   |Write data to a ﬁle, a table, or otherwise
+
+All-or-nothing property of transactions is also called ACID properties:
+
+• **Atomic:** To the outside world, the transaction happens indivisibly
+• **Consistent:** The transaction does not violate system invariants
+• **Isolated:** Concurrent transactions do not interfere with each other
+• **Durable:** Once a transaction commits, the changes are permanent
+
+Number of subtransactions, jointly forming a nested transaction.
+
+<figure>
+    <a href="/assets/images/NestedTransaction.PNG"><img src="/assets/images/NestedTransaction.PNG"></a>
+</figure>
+
+The component that handled distributed (or nested) transactions formed the core for integrating applications at the server or database level. This component was called a
+**transaction processing monitor** or **TP monitor** for short. TP monitor coordinated the commitment of subtransactions following a standard protocol known as **distributed commit**.
+
+<figure>
+    <a href="/assets/images/TPMonitor.PNG"><img src="/assets/images/TPMonitor.PNG"></a>
+</figure>
+
+**Enterprise application integration**
+
+**Remote procedure calls (RPC)** an application component can effectively send a request to another application component by doing a local procedure call, which results in the request being packaged as a message and sent to the callee.
+
+**Remote method invocations (RMI)** An RMI is essentially the same as an RPC, except that it operates on objects instead of functions.
+
+<figure>
+    <a href="/assets/images/MiddlewareCommunication.PNG"><img src="/assets/images/MiddlewareCommunication.PNG"></a>
+</figure>
+
+RPC and RMI have the disadvantage that the caller and callee both need to be up and running at the time of communication. This lead to message-oriented middleware, or simply MOM. 
+
+**Publish/subscribe systems** applications send messages to logical contact points, often described by means of a subject, then applications can indicate their interest for a speciﬁc type of message, after which the communication middleware will take care that those messages are delivered to those applications.
+
+**Note 1.10 (More information: On integrating applications)**
 
 
 
@@ -182,8 +368,6 @@ Trade-off: Strict separation of policies and mechanisms may lead to *highly comp
     <a href="/assets/images/PUE.svg"><img src="/assets/images/PUE.svg"></a>
     <figcaption>Power Usage Efficiency Formula</figcaption>
 </figure>
-
-
 
 
 **References**
