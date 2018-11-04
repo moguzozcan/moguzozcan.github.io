@@ -428,10 +428,10 @@ The organization of a distributed system can be done one the logical organizatio
 A **component** is a modular unit with well-deﬁned required and provided **interfaces** that is replaceable within its environment. **Connector**, which
 is generally described as a mechanism that mediates communication, coordination, or cooperation among components. 
 
-• Layered architectures
-• Object-based architectures
-• Resource-centered architectures
-• Event-based architectures
+* Layered architectures
+* Object-based architectures
+* Resource-centered architectures
+* Event-based architectures
 
 ### Layered architecture: ###
 
@@ -453,9 +453,9 @@ Communication-protocol stacks, each layer implements one or several communicatio
 
 **Application layering**
 
-• The application-interface level: a part that handles interaction with a user or some external application
-• The processing level: a middle part that generally contains the core functionality of the application
-• The data level: a part that operates on a database or ﬁle system
+* The application-interface level: a part that handles interaction with a user or some external application
+* The processing level: a middle part that generally contains the core functionality of the application
+* The data level: a part that operates on a database or ﬁle system
 
 <figure>
     <a href="/assets/images/SearchEngineLayering.PNG"><img src="/assets/images/SearchEngineLayering.PNG"></a>
@@ -512,10 +512,10 @@ Processes can more easily join or leave. Dependencies between processes become a
 Referential Coupling - Know name or identifier of the process
 Temporarily Coupling - Both processes must be up and running
 
-Direct Coordination - Cell phone
-Mailbox Coordination - Mails
-Event-Based Coordination - Publish a notification and subscribe
-Shared Data Space - 
+* Direct Coordination - Cell phone
+* Mailbox Coordination - Mails
+* Event-Based Coordination - Publish a notification and subscribe
+* Shared Data Space - 
 
 <figure>
     <a href="/assets/images/PubSubArchitecture.PNG"><img src="/assets/images/PubSubArchitecture.PNG"></a>
@@ -556,7 +556,77 @@ Interceptor(durdurucu, yol kesen in Turkish) is nothing but a software construct
 
 ### Modifiable middleware ###
 
-Designers of middleware to consider the construction of *adaptive software*. 
+Designers of middleware to consider the construction of *adaptive software*. Replacing software components at runtime is an example of modifying a system. A system may either be conﬁgured statically at design time, or dynamically at runtime. 
+
+## 2.3 System architecture ##
+
+Centralized and decentralized organizations, as well as various hybrid forms.
+
+### Centralized organizations ###
+
+Clients that request services from servers helps understanding and managing the complexity of distributed systems. 
+
+**Simple client-server architecture**
+
+A server is a process implementing a speciﬁc service, for example, a ﬁle system service or a database service. A client is a process that requests a service from a server by sending it a request and subsequently waiting for the server’s reply. This client-server interaction, also known as request-reply behavior.
+
+<figure>
+    <a href="/assets/images/ClientServer.PNG"><img src="/assets/images/ClientServer.PNG"></a>
+</figure>
+
+When an operation can be repeated multiple times without harm, it is said to be **idempotent.**
+
+Virtually all Internet application protocols are based on reliable TCP/IP connections. In this case, whenever a client requests a service, it first sets up a connection to the server before sending the request. The server generally uses that same connection to send the reply message, after which the connection is torn down. The trouble may be that setting up and tearing down a connection is relatively costly, especially when the request and reply messages are small.
+
+**Multitiered Architectures**
+
+1. A client machine containing only the programs implementing (part of) the user-interface level
+2. A server machine containing the rest, that is, the programs implementing the processing and data level
+
+First step, we make a distinction between only two kinds of machines: client machines and server machines, leading to what is also referred to as a **(physically) two-tiered architecture.**
+
+<figure>
+    <a href="/assets/images/TwoTieredClientServer.PNG"><img src="/assets/images/TwoTieredClientServer.PNG"></a>
+</figure>
+
+From a systems-management perspective, having what are called **fat clients** is not optimal. Instead the **thin clients** as represented by the organizations shown in Figure 2.16(a)–(c) are much easier, perhaps at the cost of less sophisticated user interfaces and client-perceived performance.
+
+Fat clients: ofﬁce suites, many multimedia applications require that processing is done on the client’s side.
+
+Server may sometimes need to act as a client, this leads to **(physically) three-tiered architecture**
+
+<figure>
+    <a href="/assets/images/ThreeTieredClientServer.PNG"><img src="/assets/images/ThreeTieredClientServer.PNG"></a>
+</figure>
+
+Examples: Transaction processing. Organization of Web sites. Web server acts as an entry point to a site, passing requests to an application server where the actual processing takes place. This application server, in turn, interacts with a database server.
+
+### Decentralized organizations: peer-to-peer systems ### 
+
+A client-server application as a multitiered architecture. We refer to this type of distribution as **vertical distribution**. The characteristic feature of vertical distribution is that it is achieved by placing logically different components on different machines. The term is related to the concept of vertical fragmentation as used in distributed relational databases, where it means that tables are split columnwise, and subsequently distributed across multiple machines
+
+Distribution of the clients and the servers that counts, which we refer to as **horizontal distribution**. In this type of distribution, a client or server may be physically split up into logically equivalent parts, but each part is operating on its own share of the complete data set, thus balancing the load. 
+
+Processes that constitute a peer-to-peer system are all equal interaction between processes is symmetric: each process will act as a client and a server at the same time  acting as a **servant**
+
+**Structured peer-to-peer systems**
+
+Nodes (processes) are organized in an overlay that adheres to a speciﬁc, deterministic topology: a ring, a binary tree, a grid. Each data item that is to be maintained by the system, is uniquely associated with a key, and that this key is subsequently used as an index. To this end, it is common to use a hash function, so that we get: 
+
+key(data item) = hash(data item’s value)
+
+A hypercube is an n-dimensional cube.
+
+<figure>
+    <a href="/assets/images/Hypercube.PNG"><img src="/assets/images/Hypercube.PNG"></a>
+</figure>
+
+**Unstructured peer-to-peer systems**
+
+Each node maintains an ad hoc list of neighbors. The resulting overlay resembles what is known as a random graph: a graph in which an edge hu, vi between two nodes u and v exists only with a certain probability P[hu, vi]
+
+
+
 
 
 
