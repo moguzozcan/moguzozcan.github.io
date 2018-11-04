@@ -5,7 +5,7 @@ categories:
   - Distributed Systems, Book Notes
 ---
 
-**Introduction**
+#Introduction#
 
 Two development cause the rise of distributed systems:
 
@@ -14,9 +14,10 @@ Two development cause the rise of distributed systems:
 2. Invention of high-speed computer networks.
 
 **Local-area networks (LAN)**: Machines within a building to be connected.
+
 **Wide-area networks (WAN)**: Hundreds of millions of machines all over the earth to be connected at speeds varying from tens of thousands to hundreds of millions bps.
 
-**1.1 What is a distributed system?**
+##1.1 What is a distributed system?##
 
 A distributed system is a collection of autonomous computing elements that appears to its users as a single coherent system.
 
@@ -25,6 +26,7 @@ Two characteristics of DS:
 1. A collection of computing elements **(node)** each being able to behave independently of each other.
 
     **Group membership**
+
     **Open group:** Any node is allowed to join the distributed system, effectively meaning that it can send messages to any other node in the system. 
     **Closed group:** Only the members of that group can communicate with each other and a separate mechanism is needed to let a node join or leave the group
 
@@ -40,7 +42,7 @@ Two characteristics of DS:
 
     User would not be able to tell exactly on which computer a process is currently executing, or even perhaps that part of a task has been spawned off to another process executing somewhere else. Likewise, where data is stored should be of no concern, and neither should it matter that the system may be replicating data to enhance performance. This so called **distribution transparency**
 
-**Middleware and distributed systems**
+###Middleware and distributed systems###
 
 Middleware: DS are often organized to have a separate layer of software that is logically placed on top of the respective operating systems of the computers that are part of the system.
 
@@ -51,22 +53,25 @@ Middleware: DS are often organized to have a separate layer of software that is 
 In a sense, middleware is the same to a distributed system as what an operating system is to a computer: a manager of resources offering its applications to efficiently share and deploy those resources across a network. Next to resource management, it offers services that can also be found in most operating systems, including:
 
 • Facilities for interapplication communication.
+
 • Security services.
+
 • Accounting services.
+
 • Masking of and recovery from failures.
 
-**Typical middleware services**
+###Typical middleware services###
 
 **Communication:** Remote Procedure Call (RPC). allows an application to invoke a function that is implemented and executed on a remote computer as if it was locally available. 
 
 **Transactions:** Executing services in an all-or-nothing fashion, referred to as an atomic transaction, the middleware makes sure that every service is invoked, or none at all.
 
-**Service composition:** It is becoming increasingly common to develop new applications by taking existing programs and gluing them together. This is notably the case for many Web-based applications, in particular those known as **Web services** [Alonso et al., 2004]. Web-based middleware can help by standardizing the way Web services are accessed and providing the means to generate their functions in a speciﬁc order. A simple example of how service composition is deployed is formed by mashups:
+**Service composition:** It is becoming increasingly common to develop new applications by taking existing programs and gluing them together. This is notably the case for many Web-based applications, in particular those known as **Web services**. Web-based middleware can help by standardizing the way Web services are accessed and providing the means to generate their functions in a speciﬁc order. A simple example of how service composition is deployed is formed by mashups:
 Web pages that combine and aggregate data from different sources. Well-known mashups are those based on **Google maps** in which maps are enhanced with extra information such as trip planners or real-time weather forecasts.
 
-**Reliability:** The Horus toolkit [van Renesse et al., 1994] allows a developer to build an application as a group of processes such that any message sent by one process is guaranteed to be received by all or no other process. As it turns out, such guarantees can greatly simplify developing distributed applications and are typically implemented as part of the middleware.
+**Reliability:** The Horus toolkit allows a developer to build an application as a group of processes such that any message sent by one process is guaranteed to be received by all or no other process. As it turns out, such guarantees can greatly simplify developing distributed applications and are typically implemented as part of the middleware.
 
-**1.2 Design goals**
+##1.2 Design goals##
 
 Goals of DS:
 
@@ -75,10 +80,12 @@ Goals of DS:
 3. Being open
 4. Being scalable
 
-**Supporting resource sharing**
+###Supporting resource sharing###
+
 Resources can be virtually anything, peripherals (çevre birimler), storage facilities, data, ﬁles, services, and networks. Making distribution transparent is one aim of DS.
 
-**Making distribution transparent**
+###Making distribution transparent###
+
 **Types of distribution transparency**
 
 *Transparency*          |*Description*
@@ -96,7 +103,7 @@ Hiding differences in data representation and the way that objects can be access
 
 **Location transparency**
 
-Users cannot tell where an object is physically located in the system. Achieved by assigning only logical names to resources, that is, names in which the location of a resource is not secretly encoded. Uniform resource locator (URL) http://www.prenhall.com/index.html, which gives no clue about the actual location of Prentice Hall’s main Web server
+Users cannot tell where an object is physically located in the system. Achieved by assigning only logical names to resources, that is, names in which the location of a resource is not secretly encoded. Uniform resource locator (URL) http://www.prenhall.com/index.html, which gives no clue about the actual location of Prentice Hall’s main Web server.
 
 **Relocation transparency**
 
@@ -122,7 +129,7 @@ A user or application does not notice that some piece of the system fails to wor
 
 A system that offers components that can easily be used by, or integrated into other systems. At the same time, an open distributed system itself will often consist of components that originate from elsewhere.
 
-**Interoperability, composability, and extensibility**
+###Interoperability, composability, and extensibility###
 
 Deﬁne services through interfaces using an **Interface Deﬁnition Language (IDL)**
 
@@ -133,17 +140,17 @@ that implements the same interfaces as A.
 
 **Extensible** easy to add new components or replace existing ones without affecting those components that stay in place. An open distributed system should also be extensible. Easy to add parts that run on a different operating system, or even to replace an entire file system
 
-**Separating policy from mechanism**
+###Separating policy from mechanism###
 
 System be organized as a collection of relatively small and easily replaceable or adaptable components. Monolithic approach, the older way of development does not provide this.
 
-**Caching in Web browsers**
+###Caching in Web browsers###
 
 Need to consider, Storage, Exemption, Sharing and Refreshing topics. Need to offer a rich set of parameters that the user can set (dynamically).
 
 Trade-off: Strict separation of policies and mechanisms may lead to *highly complex conﬁguration* problems. To solve this, provide reasonable defaults. Self-conﬁgurable systems.
 
-**Being scalable**
+###Being scalable###
 
 **Size scalability:** Easily add more users and resources to the system without any noticeable loss of performance.
 • The computational capacity, limited by the CPUs
@@ -151,7 +158,6 @@ Trade-off: Strict separation of policies and mechanisms may lead to *highly comp
 • The network between the user and the centralized service
 
 Size scalability problems for centralized services can be formally analyzed using queuing theory
-
 
 **λ requests per second** processing capacity of the service is µ requests per second fraction
 
@@ -181,7 +187,7 @@ If a distributed system expands to another domain, two types of security measure
 
 - Second, the new domain has to protect itself against malicious attacks from the distributed system. 
 
-**Scaling techniques**
+###Scaling techniques###
 
 In DS, scalibility problems occur because of limited capacity of servers and network. 
 
@@ -205,7 +211,7 @@ In DS, scalibility problems occur because of limited capacity of servers and net
 
 Electronic stock exchanges and auctions, requires consistency. Replication requires global synchronization mechanism. 
 
-**Pitfalls**
+###Pitfalls###
 
 Peter Deutsch, at the time working at Sun Microsystems, formulated these ﬂaws as the following false assumptions that everyone makes when developing a distributed application for the first time:
 
@@ -225,17 +231,17 @@ Peter Deutsch, at the time working at Sun Microsystems, formulated these ﬂaws 
 
 • There is one administrator
 
-**1.3 Types of distributed systems**
+##1.3 Types of distributed systems##
 
 distributed computing systems, distributed information systems, and pervasive systems
 
-**High performance distributed computing**
+###High performance distributed computing###
 
 **Cluster computing** the underlying hardware consists of a collection of similar workstations or PCs, closely connected by means of a high-speed local-area network, each node runs the same operating system.
 
 **Grid computing** This subgroup consists of distributed systems that are often constructed as a federation of computer systems, where each system may fall under a different administrative domain, and may be very different when it comes to hardware, software, and deployed network technology. Next step is to outsource entire infrastructure and this ends up in *cloud computing*.
 
-**Note 1.8 (More information: Parallel processing)**
+###Note 1.8 (More information: Parallel processing)###
 
 High-performance computing started with the introduction of multiprocessor machines. Multiple CPUs are organized in such a way that they all have access to the same physical memory. Multicomputer system several computers are connected through a network and there is no sharing of main memory. The shared-memory model proved to be highly convenient for improving the performance of programs and it was relatively easy to program. Distributed shared-memory multicomputers (DSM system). In essence, a DSM system allows a processor to address a memory location at another computer as if it were local memory
 
@@ -551,7 +557,7 @@ Interceptor(durdurucu, yol kesen in Turkish) is nothing but a software construct
 
 **Modifiable middleware**
 
-Designers of middleware to consider the construction of *adaptive software*.
+Designers of middleware to consider the construction of *adaptive software*. 
 
 
 
