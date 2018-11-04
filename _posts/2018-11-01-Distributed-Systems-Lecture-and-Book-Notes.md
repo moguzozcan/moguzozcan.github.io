@@ -353,8 +353,205 @@ RPC and RMI have the disadvantage that the caller and callee both need to be up 
 
 **Note 1.10 (More information: On integrating applications)**
 
+File transfer: things that need to be agreed upon:
+• File format and layout:
+• File management: 
+• Update propagation:
+
+Shared database: two major drawbacks.
+• There is still a need to design a common data schema
+• When there are many reads and updates, a shared database can easily become a performance bottleneck.
+
+Remote procedure call: an RPC allows an application A to make use of the information available only to application B, without giving A direct access to that information
+
+Messaging: eventually the request is delivered, and if needed, that a response is eventually returned as well. 
+
+**Pervasive systems**
+
+Pervasive means "her tarafa yayılan" in Turkish. Introduction of mobile and embedded computing devices, leading to what are generally referred to as pervasive systems. Separation between users and system components is much more blurred. There is often no single dedicated interface, such as a screen/keyboard combination. Instead, a pervasive system is often
+equipped with many sensors that pick up various aspects of a user’s behavior. Likewise, it may have a myriad of actuators to provide information and feedback, often even purposefully aiming to steer behavior.
+
+Devices are characterized as being small, battery-powered, mobile, and having only a wireless connection. Internet of Things. 
+
+**Ubiquitous computing systems**
+
+Ubiquitous means "her yerde birden bulunan" in Turkish. User is continuously interacting with the system, often not even being aware that interaction is taking place.
+
+1. (Distribution) Devices are networked, distributed, and accessible in a transparent manner
+
+2. (Interaction) Interaction between users and devices is highly unobtrusive
+
+3. (Context awareness) The system is aware of a user’s context in order to optimize interaction
+
+4. (Autonomy) Devices operate autonomously without human intervention, and are thus highly self-managed
+    
+    Address allocation: Dynamic Host Conﬁguration Protocol (DHCP) 
+
+    Adding devices: It should be easy to add devices to an existing system. Universal Plug and Play Protocol (UPnP) 
+
+    Automatic updates:
+
+5. (Intelligence) The system as a whole can handle a wide range of dynamic actions and interactions
+
+**Mobile computing systems**
+
+- Mobile implies wireless communication. 
+
+- The location of a device is assumed to change over time.
+
+*Disruption-tolerant networks*: networks in which connectivity between two nodes can simply not be guaranteed. 
+
+<figure>
+    <a href="/assets/images/MobileComputing.PNG"><img src="/assets/images/MobileComputing.PNG"></a>
+</figure>
+
+With the increasing interest in complex social networks and the explosion of the use of smartphones, combine analysis of social behavior and information dissemination in so-called pocket-switched networks where nodes are formed by people (or actually, their mobile devices), and links are formed when two people encounter each other, allowing their devices to exchange data.
+
+**Sensor networks**
+
+First, sensors do not cooperate but simply send their data to a centralized database located at the operator’s site. The other extreme is to forward queries to relevant sensors and to let each compute an answer, requiring the operator to aggregate the responses. The ﬁrst one requires that sensors send all their measured data through the network, which may waste network resources and energy. The second solution may also be wasteful as it discards the aggregation capabilities of sensors which would allow much less data to be returned to the operator. What is needed are facilities for in-network data processing, similar to the previous example of abstract regions.
+
+<figure>
+    <a href="/assets/images/SensorNetworkDatabase.PNG"><img src="/assets/images/SensorNetworkDatabase.PNG"></a>
+</figure>
 
 
+Chapter 2. Architectures
+
+The organization of a distributed system can be done one the logical organization of the collection of software components, and second the actual physical realization.
+
+**2.1 Architectural styles**
+
+A **component** is a modular unit with well-deﬁned required and provided **interfaces** that is replaceable within its environment. **Connector**, which
+is generally described as a mechanism that mediates communication, coordination, or cooperation among components. 
+
+• Layered architectures
+• Object-based architectures
+• Resource-centered architectures
+• Event-based architectures
+
+**Layered architecture:**
+
+Layered fashion where a component at layer Lj can make a downcall to a component at a lower-level layer Li (with i < j) and generally expects a response. Only in exceptional cases will an upcall be made to a higher-level component.
+
+<figure>
+    <a href="/assets/images/LayeredArchitecture.PNG"><img src="/assets/images/LayeredArchitecture.PNG"></a>
+</figure>
+
+**Layered communication protocols**
+
+Communication-protocol stacks, each layer implements one or several communication services allowing data to be sent from a destination to one or several targets. To this end, each layer offers an **interface** specifying the functions that can be called. In principle, the interface should completely hide the actual implementation of a service. Another important concept in the case of communication is that of a **(communication) protocol**, which describes the rules that parties will follow in order to exchange information. It is important to understand the difference between a service offered by a layer, the interface by which that service is made available, and the protocol that a layer implements to establish communication.
+
+<figure>
+    <a href="/assets/images/LayeredCommunicationStack.PNG"><img src="/assets/images/LayeredCommunicationStack.PNG"></a>
+</figure>
+
+**Transmission Control Protocol (TCP)**. The protocol speciﬁes which messages are to be exchanged for setting up or tearing down a connection, what needs to be done to preserve the ordering of transferred data, and what both parties need to do to detect and correct data that was lost during transmission.
+
+**Application layering**
+
+• The application-interface level: a part that handles interaction with a user or some external application
+• The processing level: a middle part that generally contains the core functionality of the application
+• The data level: a part that operates on a database or ﬁle system
+
+<figure>
+    <a href="/assets/images/SearchEngineLayering.PNG"><img src="/assets/images/SearchEngineLayering.PNG"></a>
+</figure>
+
+In data level data is **persistent**, even if no application is running, data will be stored somewhere for next use.
+
+**Object-based and service-oriented architectures**
+
+**Object-based architectures** each object corresponds to a component, and these components are connected through a procedure call mechanism. A procedure call can also take place over a network, that is, the calling object need not be executed on the same machine as the called object.
+
+<figure>
+    <a href="/assets/images/ObjectBasedArchitecture.PNG"><img src="/assets/images/ObjectBasedArchitecture.PNG"></a>
+</figure>
+
+Data encapsulating (object’s state) and the operations that can be performed on that data (object's methods). The interface offered by an object conceals implementation details.  
+
+<figure>
+    <a href="/assets/images/DistributedObject.PNG"><img src="/assets/images/DistributedObject.PNG"></a>
+</figure>
+
+Distributed objects state is not distributed: it resides at a single machine. Only the interfaces implemented by the object are made available on other machines. Such objects are also referred to as remote objects.
+
+In a *service-oriented architecture*, a distributed application or system is essentially constructed as a composition of many different services. Not all of these services may belong to the same administrative organization. Developing a distributed system is partly one of *service composition*, and making sure that those services operate in harmony
+
+**Resource-based architectures**
+
+Distributed system is huge collection of resources that are individually managed by components. Representational State Transfer (REST). There are four key characteristics of what are known as RESTful
+
+1. Resources are identiﬁed through a single naming scheme
+
+2. All services offer the same interface, consisting of at most four operations,
+
+3. Messages sent to or from a service are fully self-described
+
+4. After executing an operation at a service, that component forgets everything about the caller The last property is also referred to as a stateless execution, 
+
+<figure>
+    <a href="/assets/images/RestOps.PNG"><img src="/assets/images/RestOps.PNG"></a>
+</figure>
+
+Amazon’s Simple Storage Service (Amazon S3): *objects*, which are essentially the equivalent of files, and *buckets*, the equivalent of directories. **Uniform Resource Identiﬁer (URI)**: http://BucketName.s3.amazonaws.com/ObjectName
+
+**Publish-subscribe architectures**
+
+Processes can more easily join or leave. Dependencies between processes become as loose as possible.
+
+<figure>
+    <a href="/assets/images/FormsOfCoordination.PNG"><img src="/assets/images/FormsOfCoordination.PNG"></a>
+</figure>
+
+Referential Coupling - Know name or identifier of the process
+Temporarily Coupling - Both processes must be up and running
+
+Direct Coordination - Cell phone
+Mailbox Coordination - Mails
+Event-Based Coordination - Publish a notification and subscribe
+Shared Data Space - 
+
+<figure>
+    <a href="/assets/images/PubSubArchitecture.PNG"><img src="/assets/images/PubSubArchitecture.PNG"></a>
+</figure>
+
+Feature of publish-subscribe systems is that communication takes place by describing the events that a subscriber is interested in. (attribute, value) pairs topic-based publish-subscribe systems. (attribute, range) pairs content-based publish-subscribe systems. In this case, the speciﬁed attribute is expected to take on values within a speciﬁed range. 
+
+When subscriptions are matched, there are two possible scenarios. In the ﬁrst case, the middleware may decide to forward the published notiﬁcation, along with
+the associated data, to its current set of subscribers, that is, processes with a matching subscription. As an alternative, the middleware can also forward
+only a notiﬁcation at which point subscribers can execute a read operation to retrieve the associated data item.
+
+<figure>
+    <a href="/assets/images/PubSubDataExchange.PNG"><img src="/assets/images/PubSubDataExchange.PNG"></a>
+</figure>
+
+**2.2 Middleware organization**
+
+Design patterns that are often applied to the organization of middleware: wrappers and interceptors. Both aim achieving openness.
+
+**Wrappers**
+
+The interfaces offered by the legacy component are most likely not suitable for all applications. A wrapper or adapter is a special component that offers an interface
+acceptable to a client application, of which the functions are transformed into those available at the component. Wrappers have always played an important role in extending systems with existing components.
+
+With N applications we would, in theory, need to develop N × (N − 1) = O(N2) wrappers. Broker, which is logically a centralized component that handles all the accesses between different applications.
+
+<figure>
+    <a href="/assets/images/WrapperBroker.PNG"><img src="/assets/images/WrapperBroker.PNG"></a>
+</figure>
+
+**Interceptors**
+
+Interceptor(durdurucu, yol kesen in Turkish) is nothing but a software construct that will break the usual ﬂow of control and allow other (application specific) code to be executed. request-level interceptor - message-level interceptor 
+
+<figure>
+    <a href="/assets/images/Interceptor.PNG"><img src="/assets/images/Interceptor.PNG"></a>
+</figure>
+
+**Modifiable middleware**
+
+Designers of middleware to consider the construction of *adaptive software*.
 
 
 
