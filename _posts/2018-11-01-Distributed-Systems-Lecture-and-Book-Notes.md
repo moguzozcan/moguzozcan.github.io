@@ -5,7 +5,7 @@ categories:
   - Distributed Systems, Book Notes
 ---
 
-# Introduction #
+# Chapter 1 Introduction #
 
 Two development cause the rise of distributed systems:
 
@@ -154,9 +154,9 @@ Trade-off: Strict separation of policies and mechanisms may lead to *highly comp
 ### Being scalable ###
 
 **Size scalability:** Easily add more users and resources to the system without any noticeable loss of performance.
-• The computational capacity, limited by the CPUs
-• The storage capacity, including the I/O transfer rate
-• The network between the user and the centralized service
+* The computational capacity, limited by the CPUs
+* The storage capacity, including the I/O transfer rate
+* The network between the user and the centralized service
 
 Size scalability problems for centralized services can be formally analyzed using queuing theory
 
@@ -192,23 +192,23 @@ If a distributed system expands to another domain, two types of security measure
 
 In DS, scalibility problems occur because of limited capacity of servers and network. 
 
-1. Scaling up: Increasing memory, upgrading CPUs, or replacing network modules) 
+1. Scaling up: Increasing memory, upgrading CPUs, or replacing network modules
 
 2. Scaling out: Expanding the distributed system by essentially deploying more machines, there are basically only three techniques can be applied: 
 
-    - Hiding communication latencies: applicable in the case of *geographical scalability*. Instead of waiting for a response in the server-side use *asynchronous communication*. In *interactive applications* asynchronous communication cannot be applied. If this is the case, moving part of the computation that is normally done at the server to the client process requesting the service, could be one improvement. 
+* Hiding communication latencies: applicable in the case of *geographical scalability*. Instead of waiting for a response in the server-side use *asynchronous communication*. In *interactive applications* asynchronous communication cannot be applied. If this is the case, moving part of the computation that is normally done at the server to the client process requesting the service, could be one improvement. 
 
 <figure>
     <a href="/assets/images/PushCodeToClient.png"><img src="/assets/images/PushCodeToClient.png"></a>
 </figure>
 
-    - Distribution of work Partitioning and distribution: taking a component, splitting it into smaller parts, and subsequently spreading those parts across the system. Internet Domain Name System (DNS). The names in each zone are handled by a single name server. Tree of domains, nonoverlapping zones. *Naming service* is distributed accross machines. Second example is, World Wide Web is partitioned and distributed across a few hundred million servers. Only because of this distribution of documents that the Web has been capable of scaling to its current size.
+* Distribution of work Partitioning and distribution: taking a component, splitting it into smaller parts, and subsequently spreading those parts across the system. Internet Domain Name System (DNS). The names in each zone are handled by a single name server. Tree of domains, nonoverlapping zones. *Naming service* is distributed accross machines. Second example is, World Wide Web is partitioned and distributed across a few hundred million servers. Only because of this distribution of documents that the Web has been capable of scaling to its current size.
 
 <figure>
     <a href="/assets/images/DNS.png"><img src="/assets/images/DNS.png"></a>
 </figure>
 
-    - Replication: Balance the load between components leading to better performance. Geographically widely dispersed systems, having a copy nearby can hide much of the communication latency problems. **Caching** is a special form of replication. Caching is making a copy of a resource, in the proximity of the client accessing that resource. Unlike replication, caching is a decision made by the client of a resource. Caching and replication leads to **consistency**problems. 
+* Replication: Balance the load between components leading to better performance. Geographically widely dispersed systems, having a copy nearby can hide much of the communication latency problems. **Caching** is a special form of replication. Caching is making a copy of a resource, in the proximity of the client accessing that resource. Unlike replication, caching is a decision made by the client of a resource. Caching and replication leads to **consistency**problems. 
 
 Electronic stock exchanges and auctions, requires consistency. Replication requires global synchronization mechanism. 
 
@@ -234,7 +234,7 @@ Peter Deutsch, at the time working at Sun Microsystems, formulated these ﬂaws 
 
 ## 1.3 Types of distributed systems ##
 
-distributed computing systems, distributed information systems, and pervasive systems
+Distributed computing systems, Distributed information systems, and Pervasive systems
 
 ### High performance distributed computing ###
 
@@ -266,10 +266,6 @@ Became popular when price/performance ratio of personal computers and workstatio
 
 No assumptions are made concerning similarity of hardware, operating systems, networks, administrative domains, security policies. Virtual organization
 
-<figure>
-    <a href="/assets/images/LayeredArchitectureGridComputing.PNG"><img src="/assets/images/LayeredArchitectureGridComputing.PNG"></a>
-</figure>
-
 *Fabric layer:* Provides interfaces to local resources at a specific site.
 
 *Connectivity layer:* Communication protocols for supporting grid transactions that span the usage of multiple resources.
@@ -290,20 +286,20 @@ Service-oriented architecture - Open Grid Services Architecture (OGSA)
     <a href="/assets/images/CluodComputing.PNG"><img src="/assets/images/CluodComputing.PNG"></a>
 </figure>
 
-Hardware: Manage the necessary hardware: processors, routers, but also power and cooling systems. Implemented at data centers and contains the resources that
+* Hardware: Manage the necessary hardware: processors, routers, but also power and cooling systems. Implemented at data centers and contains the resources that
 customers normally never get to see directly. 
 
-Infrastructure: Provide customers an infrastructure consisting of virtual storage and computing resources. 
+* Infrastructure: Provide customers an infrastructure consisting of virtual storage and computing resources. 
 
-Platform: Platform layer provides to a cloud-computing customer what an operating system provides to application developers, namely the means to easily develop and deploy applications that need to run in a cloud. Amazon S3 storage system is offered to theapplication developer in the form of an API allowing (locally created)
+* Platform: Platform layer provides to a cloud-computing customer what an operating system provides to application developers, namely the means to easily develop and deploy applications that need to run in a cloud. Amazon S3 storage system is offered to the application developer in the form of an API allowing (locally created)
 ﬁles to be organized and stored in buckets. 
 
-Application: Actual applications run in this layer and are offered to users for further customization. (text processors, spreadsheet applications, presentation
+* Application: Actual applications run in this layer and are offered to users for further customization. (text processors, spreadsheet applications, presentation
 applications, and so on). Applications are again executed in the vendor’s cloud. 
 
-• Infrastructure-as-a-Service (IaaS) covering the hardware and infrastructure layer
-• Platform-as-a-Service (PaaS) covering the platform layer
-• Software-as-a-Service (SaaS) in which their applications are covered
+* Infrastructure-as-a-Service (IaaS) covering the hardware and infrastructure layer
+* Platform-as-a-Service (PaaS) covering the platform layer
+* Software-as-a-Service (SaaS) in which their applications are covered
 
 Cloud computing has some serious obstacles like: provider lock-in, security and privacy issues, and dependency on the availability of service.
 
@@ -326,10 +322,10 @@ WRITE                   |Write data to a ﬁle, a table, or otherwise
 
 All-or-nothing property of transactions is also called ACID properties:
 
-• **Atomic:** To the outside world, the transaction happens indivisibly
-• **Consistent:** The transaction does not violate system invariants
-• **Isolated:** Concurrent transactions do not interfere with each other
-• **Durable:** Once a transaction commits, the changes are permanent
+* Atomic: To the outside world, the transaction happens indivisibly
+* Consistent: The transaction does not violate system invariants
+* Isolated: Concurrent transactions do not interfere with each other
+* Durable: Once a transaction commits, the changes are permanent
 
 Number of subtransactions, jointly forming a nested transaction.
 
@@ -361,13 +357,13 @@ RPC and RMI have the disadvantage that the caller and callee both need to be up 
 **Note 1.10 (More information: On integrating applications)**
 
 File transfer: things that need to be agreed upon:
-• File format and layout:
-• File management: 
-• Update propagation:
+* File format and layout:
+* File management: 
+* Update propagation:
 
 Shared database: two major drawbacks.
-• There is still a need to design a common data schema
-• When there are many reads and updates, a shared database can easily become a performance bottleneck.
+* There is still a need to design a common data schema
+* When there are many reads and updates, a shared database can easily become a performance bottleneck.
 
 Remote procedure call: an RPC allows an application A to make use of the information available only to application B, without giving A direct access to that information
 
@@ -423,11 +419,11 @@ First, sensors do not cooperate but simply send their data to a centralized data
 </figure>
 
 
-Chapter 2. Architectures
+# Chapter 2. Architectures #
 
 The organization of a distributed system can be done one the logical organization of the collection of software components, and second the actual physical realization.
 
-**2.1 Architectural styles**
+## 2.1 Architectural styles ##
 
 A **component** is a modular unit with well-deﬁned required and provided **interfaces** that is replaceable within its environment. **Connector**, which
 is generally described as a mechanism that mediates communication, coordination, or cooperation among components. 
@@ -437,7 +433,7 @@ is generally described as a mechanism that mediates communication, coordination,
 • Resource-centered architectures
 • Event-based architectures
 
-**Layered architecture:**
+### Layered architecture: ###
 
 Layered fashion where a component at layer Lj can make a downcall to a component at a lower-level layer Li (with i < j) and generally expects a response. Only in exceptional cases will an upcall be made to a higher-level component.
 
@@ -445,7 +441,7 @@ Layered fashion where a component at layer Lj can make a downcall to a component
     <a href="/assets/images/LayeredArchitecture.PNG"><img src="/assets/images/LayeredArchitecture.PNG"></a>
 </figure>
 
-**Layered communication protocols**
+#### Layered communication protocols ####
 
 Communication-protocol stacks, each layer implements one or several communication services allowing data to be sent from a destination to one or several targets. To this end, each layer offers an **interface** specifying the functions that can be called. In principle, the interface should completely hide the actual implementation of a service. Another important concept in the case of communication is that of a **(communication) protocol**, which describes the rules that parties will follow in order to exchange information. It is important to understand the difference between a service offered by a layer, the interface by which that service is made available, and the protocol that a layer implements to establish communication.
 
@@ -469,7 +465,9 @@ In data level data is **persistent**, even if no application is running, data wi
 
 **Object-based and service-oriented architectures**
 
-**Object-based architectures** each object corresponds to a component, and these components are connected through a procedure call mechanism. A procedure call can also take place over a network, that is, the calling object need not be executed on the same machine as the called object.
+### Object-based architectures ###  
+
+Each object corresponds to a component, and these components are connected through a procedure call mechanism. A procedure call can also take place over a network, that is, the calling object need not be executed on the same machine as the called object.
 
 <figure>
     <a href="/assets/images/ObjectBasedArchitecture.PNG"><img src="/assets/images/ObjectBasedArchitecture.PNG"></a>
@@ -485,7 +483,7 @@ Distributed objects state is not distributed: it resides at a single machine. On
 
 In a *service-oriented architecture*, a distributed application or system is essentially constructed as a composition of many different services. Not all of these services may belong to the same administrative organization. Developing a distributed system is partly one of *service composition*, and making sure that those services operate in harmony
 
-**Resource-based architectures**
+### Resource-based architectures ###
 
 Distributed system is huge collection of resources that are individually managed by components. Representational State Transfer (REST). There are four key characteristics of what are known as RESTful
 
@@ -503,7 +501,7 @@ Distributed system is huge collection of resources that are individually managed
 
 Amazon’s Simple Storage Service (Amazon S3): *objects*, which are essentially the equivalent of files, and *buckets*, the equivalent of directories. **Uniform Resource Identiﬁer (URI)**: http://BucketName.s3.amazonaws.com/ObjectName
 
-**Publish-subscribe architectures**
+### Publish-subscribe architectures ###
 
 Processes can more easily join or leave. Dependencies between processes become as loose as possible.
 
@@ -533,11 +531,11 @@ only a notiﬁcation at which point subscribers can execute a read operation to 
     <a href="/assets/images/PubSubDataExchange.PNG"><img src="/assets/images/PubSubDataExchange.PNG"></a>
 </figure>
 
-**2.2 Middleware organization**
+## 2.2 Middleware organization ##
 
 Design patterns that are often applied to the organization of middleware: wrappers and interceptors. Both aim achieving openness.
 
-**Wrappers**
+### Wrappers ###
 
 The interfaces offered by the legacy component are most likely not suitable for all applications. A wrapper or adapter is a special component that offers an interface
 acceptable to a client application, of which the functions are transformed into those available at the component. Wrappers have always played an important role in extending systems with existing components.
@@ -548,7 +546,7 @@ With N applications we would, in theory, need to develop N × (N − 1) = O(N2) 
     <a href="/assets/images/WrapperBroker.PNG"><img src="/assets/images/WrapperBroker.PNG"></a>
 </figure>
 
-**Interceptors**
+### Interceptors ###
 
 Interceptor(durdurucu, yol kesen in Turkish) is nothing but a software construct that will break the usual ﬂow of control and allow other (application specific) code to be executed. request-level interceptor - message-level interceptor 
 
@@ -556,7 +554,7 @@ Interceptor(durdurucu, yol kesen in Turkish) is nothing but a software construct
     <a href="/assets/images/Interceptor.PNG"><img src="/assets/images/Interceptor.PNG"></a>
 </figure>
 
-**Modifiable middleware**
+### Modifiable middleware ###
 
 Designers of middleware to consider the construction of *adaptive software*. 
 
@@ -566,7 +564,8 @@ Designers of middleware to consider the construction of *adaptive software*.
 
 
 
-**Power usage effectiveness (PUE)** is a ratio that describes how efficiently a computer data center uses energy; specifically, how much energy is used by the computing equipment (in contrast to cooling and other overhead). PUE was originally developed by a consortium called The Green Grid. [2]
+### Power usage effectiveness (PUE) ###
+Is a ratio that describes how efficiently a computer data center uses energy; specifically, how much energy is used by the computing equipment (in contrast to cooling and other overhead). PUE was originally developed by a consortium called The Green Grid. [2]
 
 <figure>
     <a href="/assets/images/PUE.svg"><img src="/assets/images/PUE.svg"></a>
