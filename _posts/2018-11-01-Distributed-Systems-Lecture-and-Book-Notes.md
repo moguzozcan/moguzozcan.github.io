@@ -83,7 +83,7 @@ Goals of DS:
 
 ### Supporting resource sharing ###
 
-Resources can be virtually anything, peripherals (çevre birimler), storage facilities, data, ﬁles, services, and networks. Making distribution transparent is one aim of DS.
+Resources can be virtually anything, peripherals (çevre birimler), storage facilities, data, files, services, and networks. Making distribution transparent is one aim of DS.
 
 ### Making distribution transparent ###
 
@@ -120,7 +120,7 @@ Resources may be replicated to increase availability or to improve performance b
 
 **Concurrency transparency**
 
-Two independent users may each have stored their ﬁles on the same file server or may be accessing the same tables in a shared database and each user does not notice that the other is making use of the same resource.
+Two independent users may each have stored their files on the same file server or may be accessing the same tables in a shared database and each user does not notice that the other is making use of the same resource.
 
 **Failure transparency**
 
@@ -292,7 +292,7 @@ customers normally never get to see directly.
 * Infrastructure: Provide customers an infrastructure consisting of virtual storage and computing resources. 
 
 * Platform: Platform layer provides to a cloud-computing customer what an operating system provides to application developers, namely the means to easily develop and deploy applications that need to run in a cloud. Amazon S3 storage system is offered to the application developer in the form of an API allowing (locally created)
-ﬁles to be organized and stored in buckets. 
+files to be organized and stored in buckets. 
 
 * Application: Actual applications run in this layer and are offered to users for further customization. (text processors, spreadsheet applications, presentation
 applications, and so on). Applications are again executed in the vendor’s cloud. 
@@ -317,8 +317,8 @@ Primitive               |Description
 BEGIN_TRANSACTION       |Mark the start of a transaction
 END_TRANSACTION         |Terminate the transaction and try to commit
 ABORT_TRANSACTION       |Kill the transaction and restore the old values
-READ                    |Read data from a ﬁle, a table, or otherwise
-WRITE                   |Write data to a ﬁle, a table, or otherwise
+READ                    |Read data from a file, a table, or otherwise
+WRITE                   |Write data to a file, a table, or otherwise
 
 All-or-nothing property of transactions is also called ACID properties:
 
@@ -455,7 +455,7 @@ Communication-protocol stacks, each layer implements one or several communicatio
 
 * The application-interface level: a part that handles interaction with a user or some external application
 * The processing level: a middle part that generally contains the core functionality of the application
-* The data level: a part that operates on a database or ﬁle system
+* The data level: a part that operates on a database or file system
 
 <figure>
     <a href="/assets/images/SearchEngineLayering.PNG"><img src="/assets/images/SearchEngineLayering.PNG"></a>
@@ -568,7 +568,7 @@ Clients that request services from servers helps understanding and managing the 
 
 **Simple client-server architecture**
 
-A server is a process implementing a speciﬁc service, for example, a ﬁle system service or a database service. A client is a process that requests a service from a server by sending it a request and subsequently waiting for the server’s reply. This client-server interaction, also known as request-reply behavior.
+A server is a process implementing a speciﬁc service, for example, a file system service or a database service. A client is a process that requests a service from a server by sending it a request and subsequently waiting for the server’s reply. This client-server interaction, also known as request-reply behavior.
 
 <figure>
     <a href="/assets/images/ClientServer.PNG"><img src="/assets/images/ClientServer.PNG"></a>
@@ -626,6 +626,192 @@ A hypercube is an n-dimensional cube.
 Each node maintains an ad hoc list of neighbors. The resulting overlay resembles what is known as a random graph: a graph in which an edge hu, vi between two nodes u and v exists only with a certain probability P[hu, vi]
 
 
+**Flooding**: In the case of ﬂooding, an issuing node u simply passes a request for a data item to all its neighbors time-to-live or TTL value, giving the maximum number of hops a request is allowed to be forwarded
+
+**Random walks**: At the other end of the search spectrum, an issuing node u can simply try to ﬁnd a data item by asking a randomly chosen neighbor,
+
+**Hierarchically organized peer-to-peer networks**
+
+Many peer-to-peer systems have proposed to make use of special nodes that maintain an index of data items. A collaborative **content delivery network (CDN)**, nodes may offer storage for hosting copies of Web documents allowing Web clients to access pages nearby, and thus to access them quickly. Nodes such as those maintaining an index or acting as a broker are generally referred to as **super peers**. Every regular peer, now referred to as a **weak peer**, is connected as a client to a super peer.
+
+<figure>
+    <a href="/assets/images/SuperPeerNetwork.PNG"><img src="/assets/images/SuperPeerNetwork.PNG"></a>
+</figure>
+
+In the case of file-sharing networks, it may be better for a weak peer to attach to a super peer that maintains an index of files that the weak peer is currently interested in. In that case, chances are bigger that when a weak peer is looking for a speciﬁc file, its super peer will know where to ﬁnd it.
+
+With super-peer networks a new problem is introduced, namely how to select the nodes that are eligible to become super peer. This problem is closely related to the leader-election problem.
+
+### Hybrid Architectures ###
+
+Some specific classes of distributed systems in which client-server solutions are combined with decentralized architectures.
+
+**Edge-server systems**
+
+These systems are deployed on the Internet where servers are placed “at the edge” of the network. This edge is formed by the boundary between enterprise networks and the actual Internet, for example, as provided by an Internet Service Provider (ISP). Likewise, where end users at home connect to the Internet through their ISP, the ISP can be considered as residing at the edge of the Internet.
+
+<figure>
+    <a href="/assets/images/EdgeServerArchitecture.PNG"><img src="/assets/images/EdgeServerArchitecture.PNG"></a>
+</figure>
+
+A step further: taking cloud computing as implemented in a data center as the core, additional servers at the edge of the network are used to assist in computations and storage, essentially leading to distributed cloud systems. In the case of **fog computing**, even end-user devices form part of the system and are (partly) controlled by a cloud-service provider.
+
+**Collaborative distributed systems**
+
+**BitTorrent** is a peer-to-peer file downloading system. The basic idea is that when an end user is looking for a file, he downloads chunks of the file from other users until the downloaded chunks can be assembled together yielding the complete file. An important design goal was to ensure *collaboration*. In most file-sharing systems, a significant fraction of participants merely download files but otherwise contribute close to nothing, a phenomenon referred to as **free riding.** To prevent this situation, in BitTorrent a file can be downloaded only when the downloading client is providing content to someone else.
+
+<figure>
+    <a href="/assets/images/Bittorrent.PNG"><img src="/assets/images/Bittorrent.PNG"></a>
+</figure>
+
+A torrent file contains the information that is needed to download a speciﬁc file. In particular, it contains a link to what is known as a tracker, which is a server that is keeping an accurate account of active nodes that have (chunks of) the requested file.
+
+## 2.4 Example architectures ##
+
+### The Network File System ### 
+
+Many distributed files systems are organized along the lines of client-server architectures, with Sun Microsystem’s Network File System (NFS) being one of the most widely-deployed ones for Unix systems. 
+
+The model underlying NFS and similar systems is that of a remote file service. In this model, clients are offered transparent access to a file system that is managed by a remote server. However, clients are normally unaware of the actual location of files.
+
+Remote access model: the client is offered only an interface containing various ﬁle operations, but the server is responsible for implementing those operations.
+
+Upload/download model a client accesses a ﬁle locally after having downloaded it from the server. Internet’s FTP service
+
+<figure>
+    <a href="/assets/images/NFS.PNG"><img src="/assets/images/NFS.PNG"></a>
+</figure>
+
+<figure>
+    <a href="/assets/images/NFSArchitecture.PNG"><img src="/assets/images/NFSArchitecture.PNG"></a>
+</figure>
+
+**Virtual File System (VFS)**, which by now is a de facto standard for interfacing to different (distributed) ﬁle systems. NFS, operations on the VFS interface are either passed to a local ﬁle system, or passed to a separate component known as the NFS client, which takes care of handling access to ﬁles stored at a remote server. In NFS, all client-server communication is done through so-called remote procedure calls (RPCs). The whole idea of the VFS is to hide the differences between various ﬁle systems. The NFS server is responsible for handling incoming client requests.
+
+### The Web ### 
+
+**Simple Web-based systems**
+
+The simplest way to refer to a document is by means of a reference called a Uniform Resource Locator (URL). It speciﬁes where a document is located by embedding the DNS name of its associated server along with a ﬁle name by which the server can look up the document in its local ﬁle system. Furthermore, a URL speciﬁes the  application-level protocol for transferring the document across the network. The communication between a browser and Web server is standardized: they both adhere to the  HyperText Transfer Protocol (HTTP).
+
+<figure>
+    <a href="/assets/images/OverallWeb.PNG"><img src="/assets/images/OverallWeb.PNG"></a>
+</figure>
+
+HyperText Markup Language, or simply HTML. In that case, the document includes various instructions expressing how its content should be displayed, similar to what one can expect from any decent word processing system.  In particular, they can have complete programs embedded of which Javascript is the one most often deployed.
+
+**Multitiered architectures**
+
+Common Gateway Interface or simply CGI. CGI deﬁnes a standard way by which a Web server can execute a program taking user data as input.
+
+<figure>
+    <a href="/assets/images/CGI.PNG"><img src="/assets/images/CGI.PNG"></a>
+</figure>
+
+## 2.5 Summary ##
+Distributed systems can be organized in many different ways. We can make a distinction between software architecture and system architecture. The latter considers where the components that constitute a distributed system are placed across the various machines. The former is more concerned about the logical organization of the software: how do components interact, in what ways can they be structured, how can they be made independent, and so on. 
+
+A keyword when talking about architectures is architectural style. A style reﬂects the basic principle that is followed in organizing the interaction between the software components comprising a distributed system. Important styles include layering, object-based styles, resource-based styles, and styles in which handling events are prominent. 
+
+There are many different organizations of distributed systems. An important class is where machines are divided into clients and servers. A client sends a request to a server, who will then produce a result that is returned to the client. The client-server architecture reﬂects the traditional way of modularizing software in which a module calls the functions available in another module. By placing different components on different machines, we obtain a natural physical distribution of functions across a collection of machines. 
+
+Client-server architectures are often highly centralized. In decentralized architectures we often see an equal role played by the processes that constitute a distributed system, also known as peer-to-peer systems. In peer-to-peer systems, the processes are organized into an overlay network, which is a logical network in which every process has a local list of other peers that it can communicate with. The overlay network can be structured, in which case deterministic schemes can be deployed for routing messages between processes. In unstructured networks, the list of peers is more or less random, implying that search algorithms need to be deployed for locating data or other processes.
+
+In hybrid architectures, elements from centralized and decentralized or-
+ganizations are combined. A centralized component is often used to handle
+initial requests, for example to redirect a client to a replica server, which, in
+turn, may be part of a peer-to-peer network as is the case in BitTorrent-based
+systems.
+
+# Chapter 3 Processes #
+
+Processes: program in execution. From an operating-system perspective, the management and scheduling of processes are perhaps the most important issues to deal with.
+
+## 3.1 Threads ##
+
+Having a ﬁner granularity in the form of multiple threads of control per process makes it much easier to build distributed applications and to get better performance.
+
+### Introduction to threads ###
+
+To execute a program, an operating system creates a number of **virtual processors**, each one for running a different program. To keep track of these virtual processors,the operating system has a **process table**, containing entries to store CPU register values, memory maps, open ﬁles, accounting information, privileges, etc. Jointly, these entries form a **process context**. 
+
+A process context can be viewed as the software analog of the hardware’s processor context. The latter consists of the minimal information that is automatically stored by the hardware to handle an interrupt, and to later return to where the CPU left off. The processor context contains at least the program counter, but sometimes also other register values such as the stack pointer.
+
+A **process** is often deﬁned as a program in execution, that is, a program that is currently being executed on one of the operating system’s virtual processors.
+
+A **thread context** often consists of nothing more than the processor context, along with some other information for thread management.
+
+The performance of a multithreaded application need hardly ever be worse than that of its single-threaded counterpart. In fact, in many cases, multithreading even leads to a performance gain. Second, because threads are not automatically protected against each other the way processes are, development of multithreaded applications requires additional intellectual effort.
+
+Registers of the **memory management unit (MMU)** and invalidate address translation caches such as in the **translation lookaside buffer (TLB).**
+
+**Thread usage in nondistributed systems**
+
+In a single-threaded process, whenever a blocking system call is executed, the process as a whole is blocked.
+
+It becomes possible to exploit parallelism when executing the program on a multiprocessor or multicore system.
+
+Multithreading is also useful in the context of large applications. Collection of cooperating programs, each to be executed by a separate process. This approach is typical for a Unix environment. Cooperation between programs is implemented by means of interprocess communication (IPC) mechanisms. For Unix systems, these mechanisms typically include (named) pipes, message queues, and shared memory segments. The major drawback of all IPC mechanisms is that communication often requires relatively extensive context switching.
+
+<figure>
+    <a href="/assets/images/ContextSwitching.PNG"><img src="/assets/images/ContextSwitching.PNG"></a>
+</figure>
+
+Software engineering reason to use threads: many applications are simply easier to structure as a collection of cooperating threads.
+
+**Thread implementation**
+
+Thread package to create and destroy threads as well as operations on synchronization variables such as mutexes and condition variables. 
+
+Basically two approaches to implement a thread package. The ﬁrst approach is to construct a thread library that is executed entirely in user space. The second approach is to have the kernel be aware of threads and schedule them.
+
+Many-to-one threading model: multiple threads are mapped to a single schedulable entity.
+
+One-to-one threading model in which every thread is a schedulable entity.
+
+Using processes instead of threads has the important advantage of separating the data space: each process works on its own part of data and is protected from interference from others through the operating system. Thread programming is considered to be notoriously difficult because the developer is fully responsible for managing concurrent access to shared data.
+
+**Threads in distributed systems**
+
+Important property of threads is that they can provide a convenient means of allowing blocking system calls without blocking the entire process in which the thread is running. 
+
+***Multithreaded clients***
+
+The round-trip delay in a wide-area network can easily be in the order of hundreds of milliseconds, or sometimes even seconds.
+
+To hide communication latencies as much as possible, some browsers start displaying data while it is still coming in. 
+
+Web servers have been replicated across multiple machines, where each server provides exactly the same set of Web documents. The replicated servers are located at the same site, and are known under the same name. When a request for a Web page comes in, the request is forwarded to one of the servers, often using a **round-robin strategy** or some other load-balancing technique. 
+
+***When using a multithreaded client***, connections may be set up to different replicas, allowing data to be transferred in parallel, effectively establishing that the entire Web document is fully displayed in a much shorter time than with a nonreplicated server. This approach is possible only if the client can handle truly parallel streams of incoming data. Threads are ideal for this purpose.
+
+* Note that an active thread is not necessarily running; it may be blocked waiting for an I/O request to complete
+
+***Multithreaded servers***
+
+Using multithread is more beneficial in the server side. To understand the benefits of threads for writing server code, consider the organization of a ﬁle server that occasionally has to block waiting for the disk. The ﬁle server normally waits for an incoming request for a ﬁle operation, subsequently carries out the request, and then sends back the reply. One possible, and particularly popular organization is shown in Figure 3.4. Here one thread, the dispatcher, reads incoming requests for a ﬁle operation. The requests are sent by clients to a well-known end point for this server. After examining the request, the server chooses an idle (i.e., blocked) worker thread and hands it the request
+
+<figure>
+    <a href="/assets/images/DispatcherWorkerModel.PNG"><img src="/assets/images/DispatcherWorkerModel.PNG"></a>
+</figure>
+
+A multithreaded ﬁle server and a single-threaded ﬁle server. A third alternative is to run the server as a big single-threaded ﬁnite-state machine.
+
+<figure>
+    <a href="/assets/images/3waystoconstructserver.PNG"><img src="/assets/images/3waystoconstructserver.PNG"></a>
+</figure>
+
+Threads make it possible to retain the idea of sequential processes that make blocking system calls and still achieve parallelism. The ﬁnite-state machine approach achieves high performance through parallelism, but uses nonblocking calls, which is generally hard to program and thus to maintain. 
+
+Instead of using threads, we can also use multiple processes to organize a server (leading to the situation that we actually have a multiprocess server). The advantage is that the operating system can offer more protection against accidental access to shared data. However, if processes need to communicate a lot, we may see a noticeable adverse affect on performance in comparison to using threads.
+
+## 3.2 Virtualization ##
+
+Threads and processes build (pieces of) programs that appear to be executed simultaneously. In single processor machine by rapidly switching between threads and processes, the illusion of  parallelism is created. Separation between having a single CPU and being able to pretend there are more can be extended to other resources as well, leading to what is known as **resource virtualization**.
+
+### Principle of virtualization ###
+
+
 
 
 
@@ -642,8 +828,14 @@ Is a ratio that describes how efficiently a computer data center uses energy; sp
     <figcaption>Power Usage Efficiency Formula</figcaption>
 </figure>
 
+PUE = Total in DC / Total by server
 
-**References**
+PUE = (Pservers + Pcrac) / Pserver  => if PUD = 1, it is perfect
+
+6 digit 
+
+
+**References** 
 
 [1] Andrew S. Tanenbaum and Maarten van Steen. 2006. Distributed Systems: Principles and Paradigms (2nd Edition). Prentice-Hall, Inc., Upper Saddle River, NJ, USA.
 
