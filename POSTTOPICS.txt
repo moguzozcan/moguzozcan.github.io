@@ -1,0 +1,14 @@
+- Marcura tests
+- volatile keyword, volatile vs synchronized
+- some design patterns
+- put CS549 homework into repository
+- SOLID Principles  - https://blog.bitsrc.io/solid-principles-every-developer-should-know-b3bfa96bb688
+- https://medium.com/car2godevs/in-memory-distributed-data-structures-for-the-masses-c6627664474a
+- docker compose :nocopy
+
+
+-IOT için docker image?
+
+- (NATed) ﬁrewall?? ﬁrewalls restrict UDP trafﬁc??
+
+Network Address Translation (NAT) technology.??

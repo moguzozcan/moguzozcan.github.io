@@ -811,6 +811,81 @@ Threads and processes build (pieces of) programs that appear to be executed simu
 
 ### Principle of virtualization ###
 
+Every (distributed) computer system offers a programming interface to higher-level software. There are many different types of interfaces, ranging from the basic instruction set as offered by a CPU to the vast collection of application programming interfaces that are shipped with many current middleware systems. In its essence, virtualization deals with extending or replacing an existing interface so as to mimic the behavior of another system.
+
+<figure>
+    <a href="/assets/images/ProgramInterfaceSystem.PNG"><img src="/assets/images/ProgramInterfaceSystem.PNG"></a>
+</figure>
+
+**Virtualization and distributed systems**
+
+Virtualization can help a lot: the diversity of platforms and machines can be reduced by essentially letting each application run on its own virtual machine, possibly including the related libraries and operating system, which, in turn, run on a common platform.
+
+High degree of portability and ﬂexibility. Content delivery networks that can easily support replication of dynamic contentç management becomes much easier if edge servers would support virtualization, allowing a complete site, including its environment to be dynamically copied.
+
+**Types of virtualization**
+
+Computer systems generally offer four different types of interfaces, at three different levels:
+
+1. An interface between the hardware and software, referred to as the instruction set architecture (ISA), forming the set of machine instructions. This set is divided into two subsets:
+• Privileged instructions, which are allowed to be executed only by the operating system.
+• General instructions, which can be executed by any program.
+2. An interface consisting of system calls as offered by an operating system.
+3. An interface consisting of library calls, generally forming what is known as an application programming interface (API). In many cases, the aforementioned system calls are hidden by an API.
+
+<figure>
+    <a href="/assets/images/TypeofInterfaces.PNG"><img src="/assets/images/TypeofInterfaces.PNG"></a>
+</figure>
+
+Virtualization can take place in two different ways:
+
+1. Runtime system that essentially provides an abstract instruction set that is to be used for executing applications. **Process virtual machine**, stressing that virtualization is only for a single process.
+
+2. Provide a system that is implemented as a layer shielding the original hardware, but offering the complete instruction set of that same (or other hardware) as an interface. This leads to what is known as a native virtual machine monitor. It is called native because it is implemented directly on top of the underlying hardware. Note that the interface offered by a virtual machine monitor can be offered simultaneously to different programs. As a result, it is now possible to have multiple, and different guest operating systems run independently and concurrently on the same platform.
+
+3. A native virtual machine monitor will have to provide and regulate access to various resources, like external storage and networks. Like any operating system, this implies that it will have to implement device drivers for those resources. Rather than doing all this effort anew, a hosted virtual machine monitor will run on top of a trusted host operating system. In this case, the virtual machine monitor can make use of existing facilities provided by that host operating system. It will generally have to be given special privileges instead of running as a user-level application. Using a hosted virtual machine monitor is highly popular in modern distributed systems such as data centers and clouds.
+
+<figure>
+    <a href="/assets/images/TypeOfVirtualization.PNG"><img src="/assets/images/TypeOfVirtualization.PNG"></a>
+</figure>
+
+**Note 3.5 (Advanced: On the performance of virtual machines)**
+
+For any conventional computer, a virtual machine monitor may be constructed if the set of sensitive instructions for that computer is a subset of the set of privileged instructions.
+
+<figure>
+    <a href="/assets/images/GuestVM.PNG"><img src="/assets/images/GuestVM.PNG"></a>
+</figure>
+
+### Application of virtual machines to distributed systems ### 
+
+From the perspective of distributed systems, the most important application of virtualization lies in cloud computing. 
+
+* Infrastructure-as-a-Service (IaaS) covering the basic infrastructure
+* Platform-as-a-Service (PaaS) covering system-level services
+* Software-as-a-Service (SaaS) containing actual applications
+
+Virtualization plays a key role in IaaS. Instead of renting out a physical machine, a cloud provider will rent out a virtual machine (monitor) that may, or may not, be sharing a physical machine with other customers. The beauty of virtualization is that it allows for almost complete isolation between customers, who will indeed have the illusion that they have just rented a dedicated physical machine. 
+
+Amazon Elastic Compute Cloud, or simply EC2. There is a (large) number of pre-conﬁgured machine images available, referred to as Amazon Machine Images, or simply AMIs. An AMI is an installable software package consisting of an operating-system kernel along with a number of services. An example of a simple, basic AMI is a LAMP image, consisting of a Linux kernel, the Apache Web server, a MySQL database system, and PHP libraries. More elaborate images containing additional software are also available, as well as images based on other Unix kernels or Windows. In this sense, an AMI is essentially the same as a boot disk. Where EC2 Instances are running: regions provided by Amazon (US, South America, Europe, Asia)
+
+Two ip's of the EC2's. One is private used for internal communication between instances and public one allows internet clients to connect. The public address is mapped to the private one using standard **Network Address Translation (NAT)** technology.
+
+The EC2 environment in which an instance is executed provides different
+levels of the following services:
+
+* CPU: allows to select the number and type of cores, including GPUs
+* Memory: deﬁnes how much main memory is allocated to an instance
+* Storage: deﬁnes how much local storage is allocated
+* Platform: distinguishes between 32-bit or 64-bit architectures
+* Networking: sets the bandwidth capacity that can be used
+
+The local storage that comes with an instance is transient: when the instance stops, all the data stored locally is lost. In order to prevent data loss, a customer will need to explicitly save data to persistent store, for example, by making use of Amazon’s Simple Storage Service (S3). An alternative is to attach a storage device that is mapped to Amazon’s Elastic Block Store (Amazon EBS). EBS is mounting a harddrive and can be used in other instances. 
+
+## 3.3 Clients ##
+
+**Networked user interfaces**
+
 
 
 
