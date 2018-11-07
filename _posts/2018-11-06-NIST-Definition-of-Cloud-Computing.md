@@ -11,7 +11,7 @@ Cloud computing is a model for enabling ubiquitous, convenient, on-demand networ
 
 **Essential Characteristics:**
 
-*On-demand self-service.* A consumer can unilaterally provision computing capabilities, such as server time and network storage, as needed automatically without requiring human interaction with each service’s provider. 
+*On-demand self-service.* A consumer can unilaterally(tek taraflı) provision(tedarik etmek) computing capabilities, such as server time and network storage, as needed automatically without requiring human interaction with each service’s provider. 
 
 *Broad network access.* Capabilities are available over the network and accessed through standard mechanisms that promote use by heterogeneous thin or thick client platforms (e.g., mobile phones, laptops, and PDAs). 
 

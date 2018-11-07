@@ -1082,14 +1082,85 @@ An important topic for distributed systems is the migration of code between diff
 
 Code migration brings along problems related to usage of local resources for which it is required that either resources are migrated as well, new bindings to local resources at the target machine are established, or for which systemwide network references are used. Another problem is that code migration requires that we take heterogeneity into account. Current practice indicates that the best solution to handle heterogeneity is to use virtual machines. These can take either the form of process virtual machines as in the case of, for example, Java, or through using virtual machine monitors that effectively allow the migration of a collection of processes along with their underlying operating system.
 
+# Chapter 4 Communication #
 
+## 4.1 Foundations ##
 
+Network communication protocols
 
+### Layered Protocols ###
 
+Due to the absence of shared memory, all communication in distributed systems is based on sending and receiving (low level) messages.
 
+**The OSI reference model**
 
+**International Standards Organization (ISO)**: clearly identiﬁes the various levels involved, gives them standard names, and points out which level should do which job. Open Systems Interconnection Reference Model usually abbreviated as **ISO OSI** or sometimes just the **OSI model**. Communication protocols, To allow a group of computers to communicate over a network, they must all agree on the protocols to be used. A protocol is said to provide a communication service. There are two types of  such services. In the case of a connection-oriented service, before exchanging data the sender and receiver ﬁrst explicitly establish a connection, and possibly negotiate speciﬁc parameters of the protocol they will use. When they are done, they release (terminate) the connection. The telephone is a typical connection-oriented communication service. With connectionless services, no setup in advance is needed. The sender just transmits the ﬁrst message when it is ready. Dropping a letter in a mailbox is an example of making use of connectionless communication service. With computers, both connection-oriented and connectionless communication are common.
 
+<figure>
+    <a href="/assets/images/OpenSystemIntercommunicationOSI.PNG"><img src="/assets/images/OpenSystemIntercommunicationOSI.PNG"></a>
+</figure>
 
+Each layer provides an interface to the one above it. The interface consists of a set of operations that together deﬁne the service the layer is prepared to offer. The seven OSI layers are:
+
+* **Physical layer** Deals with standardizing how two computers are connected and how 0s and 1s are represented.
+* **Data link layer** Provides the means to detect and possibly correct transmission errors, as well as protocols to keep a sender and receiver in the same pace.
+* **Network layer** Contains the protocols for routing a message through a computer network, as well as protocols for handling congestion.
+* **Transport layer** Mainly contains protocols for directly supporting applications, such as those that establish reliable communication, or support real-time streaming of data.
+* **Session layer** Provides support for sessions between applications.
+* **Presentation layer** Prescribes how data is represented in a way that is independent of the hosts on which communicating applications are running.
+* **Application layer** Essentially, everything else: e-mail protocols, Web access protocols, ﬁle-transfer protocols, and so on.
+
+When process P wants to communicate with some remote process Q, it builds a message and passes that message to the application layer as offered to it by means of an interface. This interface will typically appear in the form of a library procedure. The application layer software then adds a header to the front of the message and passes the resulting message across the layer 6/7 interface to the presentation layer. The presentation layer, in turn, adds its own header and passes the result down to the session layer, and so on. Some layers add not only a header to the front, but also a trailer to the end. When it hits the bottom, the physical layer actually transmits the message by putting it onto the physical transmission medium.
+
+<figure>
+    <a href="/assets/images/MessageOntheNetwork.PNG"><img src="/assets/images/MessageOntheNetwork.PNG"></a>
+</figure>
+
+It is important to distinguish a ***reference model*** from its actual ***protocols***. As said, the OSI protocols were never popular, in contrast to protocols developed for the Internet, such as TCP and IP.
+
+Physical layer sends 0 and 1s, electrical, optical, mechanical and signaling interfaces. Group bits into frames. Datalink layer, adds checksum to frames. Finding best path is called routing, and is essentially the primary task of the network layer. Transport layer, makes sure application layer messages are guaranteed to be sent. Reliable transport, The Internet transport protocol is called TCP (Transmission Control Protocol). The combination TCP/IP is now used as a de facto standard for network communication. The Internet protocol suite also supports a connectionless transport protocol called UDP (Universal Datagram Protocol). To support real-time data transfer, the Real-time Transport Protocol (RTP). The session layer is essentially an enhanced version of the transport layer. It provides dialog control, to keep track of which party is currently talking, and it provides synchronization facilities. Unlike the lower layers, which are concerned with getting the bits from the sender to the receiver reliably and efﬁciently, the presentation layer is concerned with the meaning of the bits. In the presentation layer it is possible to deﬁne records containing ﬁelds like these and then have the sender notify the receiver that a message contains a particular record in a certain format. The OSI application layer was originally intended to contain a collection of standard network applications such as those for electronic mail, ﬁle transfer, and terminal emulation. 
+
+**Middleware protocols**
+
+The Domain Name System (DNS) is a distributed service that is used to look up a network address associated with a name, such as the address of a so-called domain name like www.distributed-systems.net. DNS is offering a general-purpose, application-independent service. Arguably, it forms part of the middleware. Authentication protocols are not closely tied to any speciﬁc application, but instead, can be integrated into a middleware system as a general service.
+
+Remote procedure call, a process is offered a facility to locally call a procedure that is effectively implemented on a remote machine. 
+
+**Types of Communication**
+
+With **persistent communication**, a message that has been submitted for transmission is stored by the communication middleware as long as it takes to deliver it to the receiver. **Transient communication**, a message is stored by the communication system only as long as the sending and receiving application are executing.
+
+The characteristic feature of **asynchronous communication** is that a sender continues immediately after it has submitted its message for transmission. This means that the message is (temporarily) stored immediately by the middleware upon submission. With **synchronous communication**, the sender is blocked until its request is known to be accepted.
+
+## 4.2 Remote procedure call ##
+
+Call procedures located on other machines. A server stub is the server-side equivalent of a client stub: it is a piece of code that transforms requests coming in over the network into local procedure calls. 
+
+**Parameter passing**
+
+The Intel format is called little endian and the (older) ARM format is called big endian. Byte ordering is also important for networking:also here we can witness that machines may use a different ordering when transmitting (and thus receiving) bits and bytes. However, big endian is what is normally used for transferring bytes across a network.
+
+To simplify matters, interfaces are often speciﬁed by means of an Interface Deﬁnition Language(IDL). An interface speciﬁed in such an IDL is then subsequently compiled into a client stub and a server stub, along with the appropriate compile-time or run-time interfaces.
+
+**The Message-Passing Interface (MPI)**
+
+## 4.5 Summary ##
+
+Having powerful and ﬂexible facilities for communication between processes is essential for any distributed system. In traditional network applications, communication is often based on the low-level message-passing primitives offered by the transport layer. An important issue in middleware systems is to offer a higher level of abstraction that will make it easier to express communication between processes than the support offered by the interface to the transport layer.
+
+One of the most widely used abstractions is the Remote Procedure Call (RPC). The essence of an RPC is that a service is implemented by means of a procedure, of which the body is executed at a server. The client is offered only the signature of the procedure, that is, the procedure’s name along with its parameters. When the client calls the procedure, the client-side implementation, called a stub, takes care of wrapping the parameter values into a message and sending that to the server. The latter calls the actual procedure and returns the results, again in a message. The client’s stub extracts the result values from the return message and passes it back to the calling client application.
+
+RPCs offer synchronous communication facilities, by which a client is blocked until the server has sent a reply. Although variations of either mechanism exist by which this strict synchronous model is relaxed, it turns out that general-purpose, high-level message-oriented models are often more convenient.
+
+In message-oriented models, the issues are whether or not communication is persistent, and whether or not communication is synchronous. The essence of persistent communication is that a message that is submitted for transmission, is stored by the communication system as long as it takes to deliver it. In other words, neither the sender nor the receiver needs to be up and running for message transmission to take place. In transient communication, no storage facilities are offered, so that the receiver must be prepared to accept the message when it is sent.
+
+In asynchronous communication, the sender is allowed to continue immediately after the message has been submitted for transmission, possibly before it has even been sent. In synchronous communication, the sender is blocked at least until a message has been received. Alternatively, the sender may be blocked until message delivery has taken place or even until the receiver has responded as with RPCs.
+
+Message-oriented middleware models generally offer persistent asynchronous communication, and are used where RPCs are not appropriate. They are often used to assist the integration of (widely dispersed) collections of databases into large-scale information systems. 
+
+Finally, an important class of communication protocols in distributed systems is multicasting. The basic idea is to disseminate information from one sender to multiple receivers. We have discussed two different approaches. First, multicasting can be achieved by setting up a tree from the sender to the receivers. Considering that it is now well understood how nodes can self-organize into peer-to-peer system, solutions have also appeared to dynamically set up trees in a decentralized fashion. Second, ﬂooding messages across the network is extremely robust, yet requires special attention if we want to avoid severe waste of resources as nodes may see messages multiple times. Probabilistic ﬂooding by which a node forwards a message with a certain  probability often proves to combine simplicity and efﬁciency, while being highly effective.
+
+Another important class of dissemination solutions deploys epidemic protocols. These protocols have proven to be very simple and extremely robust. Apart from merely spreading messages, epidemic protocols can also be efﬁciently deployed for aggregating information across a large distributed system.
 
 
 
