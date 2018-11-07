@@ -886,6 +886,201 @@ The local storage that comes with an instance is transient: when the instance st
 
 **Networked user interfaces**
 
+Client machines interact with remote servers. There are roughly two ways in which this interaction can be supported. 
+
+1. First, for each remote service the client machine will have a separate counterpart that can contact the service over the network. A typical example is a calendar running on a user’s smartphone that needs to synchronize with a remote, possibly shared calendar. In this case, an application-level protocol will handle the synchronization
+
+2. Provide direct access to remote services by offering only a convenient user interface. Effectively, this means that the client machine is used only as a terminal with no need for local storage, leading to an application-neutral solution. In the case of networked user interfaces, everything is processed and stored at the server. This **thin-client** approach has received much attention with the increase of Internet connectivity and the use of mobile devices. 
+
+<figure>
+    <a href="/assets/images/Clients.PNG"><img src="/assets/images/Clients.PNG"></a>
+</figure>
+
+**Thin-client network computing**
+
+As an alternative to using X, researchers and practitioners have also sought to let an application completely control the remote display, that is, up the pixel level. Changes in the bitmap are then sent over the network to the display, where they are immediately transferred to the local frame buffer. A well-known example of this approach is **Virtual Network Computing (VNC)** 
+
+**Client-side software for distribution transparency**
+
+Client software comprises more than just user interfaces. In many cases, parts of the processing and data level in a client-server application are executed on the client side as well. A special class is formed by embedded client software, such as for automatic teller machines (ATMs), cash registers, barcode readers, TV set-top boxes, etc.
+
+Access transparency is generally handled through the generation of a client stub from an interface deﬁnition of what the server has to offer. The stub provides the same interface as the one available at the server, but hides the possible differences in machine architectures, as well as the actual communication. The client stub transforms local calls to messages that are sent to the server, and vice versa transforms messages from the server to return values as one would expect when calling an ordinary procedure.
+
+## 3.4 Servers ##
+
+### General design issues ###
+
+A server is a process implementing a speciﬁc service on behalf of a collection of clients. It waits for an incoming request from a client and subsequently ensures that the request is taken care of, after which it waits for the next incoming request.
+
+**Concurrent versus iterative servers**
+
+*Iterative server*, the server itself handles the request and, if necessary, returns a response to the requesting client.
+
+*Concurrent server* does not handle the request itself, but passes it to a separate thread or another process, after which it immediately waits for the next incoming request. A multithreaded server is an example of a concurrent server. An alternative implementation of a concurrent server is to fork a new process for each new incoming request. This approach is followed in many Unix systems. The thread or process that handles the request is responsible for returning a response to the requesting client.
+
+**Contacting a server: end points**
+
+Clients connect to server using **end point** and a **port**. FTP uses TCP port 21, HTTP server listens TCP port 80. These well known ports are defined in Internet Assigned Numbers Authority (IANA).
+
+<figure>
+    <a href="/assets/images/SuperServer.PNG"><img src="/assets/images/SuperServer.PNG"></a>
+</figure>
+
+**Interrupting a server**
+
+1. User to abruptly exit the client application (which will automatically break the connection to the server), immediately restart it, and pretend nothing happened.
+
+2. Develop the client and server such that it is possible to send out-of-band data that is to be processed by the server before any other data from that client. Server listen to a separate control end point to which the client sends out-of-band data, while at the same time listening (with a lower priority) to the end point through which the normal data passes.
+
+3. Send out-of-band data across the same connection through which the client is sending the original request.
+
+**Stateless versus stateful servers**
+
+Stateless server does not keep information on the state of its clients, and can change its own state without having to inform any client. Web server, for example, is stateless. It merely responds to incoming HTTP requests. Server maintains what is known as **soft state**. In this case, the server promises to maintain state on behalf of the client, but only for a limited time. 
+
+Stateful server generally maintains persistent information on its clients. File server that allows a client to keep a local copy of a ﬁle, even for performing update operations. If the server crashes, it has to recover its table of (client, ﬁle) entries, or otherwise it cannot guarantee that it has processed the most recent updates on a ﬁle.
+
+Client send along additional information on its previous accesses. In the case of the Web, this information is often transparently stored by the client’s browser in what is called a cookie, which is a small piece of data.
+
+**Object servers**
+
+Difference between general object server and other (more traditional) servers is that an object server by itself does not provide a speciﬁc service. Speciﬁc services are implemented by the objects that reside in the server. Essentially, the server provides only the means to invoke local objects, based on requests from remote clients. 
+
+An object server thus acts as a place where objects live. An object consists of two parts: data representing its state and the code for executing its methods. Whether or not these parts are separated, or whether method implementations are shared by multiple objects, depends on the object server.
+
+**Transient object:** an object that exists only as long as its server exists, but possibly for a shorter period of time. An in-memory, read-only copy of a ﬁle could typically be implemented as a transient object
+
+The **stub**, also called a skeleton, is normally generated from the interface deﬁnitions of the object, unmarshals the request and invokes the appropriate method.
+
+A **servant** is the general term for a piece of code that forms the implementation of an object.
+
+**Note 3.7 (Example: Enterprise Java Beans)**
+
+1. Stateless session beans: once, does its work, after which it discards any information it needed to perform the service it offered to a client. 
+2. Stateful session beans: maintains client-related state. The canonical example is a bean implementing an electronic shopping cart. 
+3. Entity beans: long-lived persistent object. As such, an entity bean will generally be stored in a database, and likewise, will often also be part of transactions.
+4. Message-driven beans: used to program objects that should react to incoming messages (and likewise, be able to send messages). Message-driven beans cannot be invoked directly by a client, but rather ﬁt into a publish-subscribe way of communication. 
+
+**Example: The Apache Web server**
+
+Making the server platform independent is realized by essentially providing its own basic runtime environment, which is then subsequently implemented for different operating systems. Apache Portable Runtime (APR), ﬁle handling, networking, locking, threads.
+
+HTTP is virtually always implemented on top of TCP, for which reason the core of Apache assumes that all incoming requests adhere to a TCP-based connection-oriented way of communication. Requests based on UDP cannot be handled without modifying the Apache core.
+
+Fundamental to this Apache core organization is the concept of a hook, which is nothing but a placeholder for a speciﬁc group of function. The functions associated with a hook are all provided by separate modules.
+
+<figure>
+    <a href="/assets/images/ApacheWebServer.PNG"><img src="/assets/images/ApacheWebServer.PNG"></a>
+</figure>
+
+**Server clusters**
+
+Cluster computing as one of the many appearances of distributed systems. 
+
+***Local-area clusters***
+
+Collection of machines connected through a network, where each machine runs one or more servers. Machines are connected through a local-area network, often offering high bandwidth and low latency.
+
+**General organization** contains three tiers. First tier consists of a (logical) switch through which client requests are routed. Second tier servers dedicated to application processing. In cluster computing, these are typically servers running on high-performance hardware dedicated to delivering compute power. Third tier data-processing servers, notably ﬁle and database servers. Again, depending on the usage of the server cluster, these servers may be running on specialized machines, conﬁgured for high-speed disk access and having large server-side data caches.
+
+This is not a strict design, the case that each machine is equipped with its own local storage, often integrating application and data processing in a single server leading to a two-tiered architecture is also possible.
+
+**Request dispatching** consisting of the switch, also known as the **front end**. Hide the fact that there are multiple servers. This access transparency is invariably offered by means of a single access point, in turn implemented through some kind of hardware switch such as a dedicated machine. Transport-layer switches, the switch accepts incoming TCP connection requests, and hands off such connections to one of the servers. Two ways how the switch can operate.
+
+In the ﬁrst case, the client sets up a TCP connection such that all requests and responses pass through the switch. The switch, in turn, will set up a TCP  connection with a selected server and pass client requests to that server, and also accept server responses (which it will pass on to the client). In effect, the switch sits in the middle of a TCP connection between the client and a selected server, rewriting the source and destination addresses when passing TCP segments. This approach is a form of **network address translation (NAT)**
+
+Secondly, switch can actually hand off the connection to a selected server such that all responses are directly communicated to the client without passing through the server. The principle working of what is commonly known as **TCP handoff.**
+
+<figure>
+    <a href="/assets/images/TCPHandoff.PNG"><img src="/assets/images/TCPHandoff.PNG"></a>
+</figure>
+
+It can already be seen that the switch can play an important role in distributing the load among the various servers. The simplest load-balancing policy that the switch can follow is round robin: each time it picks the next server from its list to forward a request to. This may actually slow down the switch.
+
+**Transport-level switches**, decisions on where to forward an incoming request is based on transport-level information only. One step further is to have the switch actually inspect the payload of the incoming request. This **content-aware request distribution** can be applied only if it is known what that payload looks like.
+
+<figure>
+    <a href="/assets/images/ContentAwareRequestDistribution.PNG"><img src="/assets/images/ContentAwareRequestDistribution.PNG"></a>
+</figure>
+
+***Wide-area clusters***
+
+Deal with multiple administrative organizations such as ISPs (Internet Service Providers). Distributed systems is to provide locality: offering data and services that are close to clients. Streaming media: the closer a video server is located to a client, the easier it becomes to provide high-quality streams.
+
+Note that if wide-area locality is not critical, it may sufﬁce, or even be better, to place virtual machines in a single data center, so that interprocess communication can beneﬁt from low-latency local networks. The price to pay may be higher latencies between clients and the service running in a remote data center.
+
+**Request dispatching** server should handle the client’s request is an issue of **redirection policy**.
+
+Once a server has been selected, the dispatcher will have to inform the client. Several redirection mechanisms are possible. A popular one is when the dispatcher is actually a DNS name server. Internet or Web-based services are often looked up in the Domain Name System (DNS). A client provides a domain name such as service.organization.org to a local DNS server, which eventually returns an IP address of the associated service, possibly after having contacted other DNS servers. When sending its request to look up a name, a client also sends its own IP address (DNS requests are sent as UDP packets). In other words, the DNS server will also know the client’s IP address which it can then subsequently use to select the best server for that client, and returning a close-by IP address.
+
+Unfortunately, this scheme is not perfect for two reasons. Not the client’s IP address, but that of the local DNS server is used to identify the location of the client. There may be a huge additional communication cost, as the local DNS server is often not that local. DNS server that is deciding on which IP address to return, may be fooled by the fact that the requester is yet another DNS server acting as an intermediate between the original client and the deciding DNS server. In those case,  locality awareness has been completely lost. 
+
+**Case study: PlanetLab**
+
+Collaborative distributed system in which different organizations each donate one or more computers, adding up to a total of hundreds of nodes. Together, these computers form a 1-tier server cluster, where access, processing, and storage can all take place on each node individually.
+
+**General Organization**
+
+Virtual machine monitor (VMM) an enhanced Linux operating system. The enhancements mainly comprise adjustments for supporting the second component, namely (Linux)Vservers, separate environment in which a group of processes run. The Linux VMM ensures that Vservers are separated: processes in different Vservers are executed concurrently and independently.
+
+<figure>
+    <a href="/assets/images/PlanetLab.PNG"><img src="/assets/images/PlanetLab.PNG"></a>
+</figure>
+
+Central to managing PlanetLab resources is the node manager. Each node has such a manager, implemented by means of a separate Vserver, whose only task is to create other Vservers on the node it manages and to control resource allocation. To create a new slice, each node will also run a slice creation service (SCS), which, in turn, can contact the node manager requesting it to create a Vserver and to allocate resources. 
+
+**Vservers**
+
+**Container-based approach.** primary task of a Vserver is therefore to merely support a group of processes and keep that group isolated from processes running under the jurisdiction(yetki alanı) of another Vserver. The main difference with traditional virtual machines is that they rely on a single, shared operating-system kernel. This also means that resource management is mostly done only by the underlying operating system and not by any of the Vservers.
+
+An important advantage of the container-based approach toward virtualization in comparison to running separate guest operating systems, is that resource allocation can generally be much simpler. In particular, it is possible to overbook resources by allowing for dynamic resource allocation, just as is done with allocating resources to normal processes.
+
+## 3.5 Code migration ##
+
+### Reasons for migrating code ###
+
+**Process migration** in which an entire process was moved from one node to another. Overall system performance can be improved if processes are moved from
+heavily loaded to lightly loaded machines. Load is often expressed in terms of the CPU queue length or CPU utilization.
+
+The important advantage of this model of dynamically downloading client-side software is that clients need not have all the software preinstalled to talk to servers. Instead, the software can be moved in as necessary, and likewise, discarded when no longer needed. Another advantage is that as long as interfaces are standardized, we can change the client-server protocol and its implementation as often as we like. Changes will not affect existing client applications that rely on the server.
+
+<figure>
+    <a href="/assets/images/DynamicallyConfiguringClient.PNG"><img src="/assets/images/DynamicallyConfiguringClient.PNG"></a>
+</figure>
+
+**Note 3.10 (More information: Moving away from thin-client computing?)**
+
+By dynamically migrating client-side software, yet keeping the management of that software entirely at the server side (or rather, at its owner), having “richer” client-side software has become practically feasible.
+
+**Migration in heterogeneous systems**
+
+Simple solution to alleviate many of the  problems of porting Pascal to different machines was to generate machine-independent intermediate code for an abstract virtual machine. All such solutions have in common that they rely on a (process) virtual machine that either directly interprets source code (as in the case of scripting languages), or otherwise interprets intermediate code generated by a compiler (as in Java).
+
+Migration involves two major problems: migrating the entire memory image and migrating bindings to local resources:
+
+1. Pushing memory pages to the new machine and resending the ones that are later modiﬁed during the migration process.
+2. Stopping the current virtual machine; migrate memory, and start the new virtual machine. - unacceptable downtime
+3. Letting the new virtual machine pull in new pages as needed, that is, let processes start on the new virtual machine immediately and copy memory pages on demand.
+
+## 3.6 Summary ##
+
+Processes play a fundamental role in distributed systems as they form a basis for communication between different machines. An important issue is how processes are internally organized and, in particular, whether or not they support multiple threads of control. Threads in distributed systems are particularly useful to continue using the CPU when a blocking I/O operation is performed. In this way, it becomes possible to build highly-efﬁcient servers that run multiple threads in parallel, of which several may be blocking to wait until disk I/O or network communication completes. In general, threads are preferred over the use of processes when performance is at stake. 
+
+Virtualization has since long been an important ﬁeld in computer science, but in the advent of cloud computing has regained tremendous attention. Popular virtualization schemes allow users to run a suite of applications on top of their favorite operating system and conﬁgure complete virtual distributed systems in the cloud. Impressively enough, performance remains close to running applications on the host operating system, unless that system is shared with other virtual machines. The ﬂexible application of virtual machines has led to different types of services for cloud computing, including infrastructures, platforms, and software — all running in virtual environments.
+
+Organizing a distributed application in terms of clients and servers has proven to be useful. Client processes generally implement user interfaces, which may range from very simple displays to advanced interfaces that can handle compound documents. Client software is furthermore aimed at achieving distribution transparency by hiding details concerning the communication with servers, where those servers are currently located, and whether or not servers are replicated. In addition, client software is partly responsible for hiding failures and recovery from failures. 
+
+Servers are often more intricate than clients, but are nevertheless subject to only a relatively few design issues. For example, servers can either be iterative or concurrent, implement one or more services, and can be stateless or stateful. Other design issues deal with addressing services and mechanisms to interrupt a server after a service request has been issued and is possibly already being processed. 
+
+Special attention needs to be paid when organizing servers into a cluster. A common objective is to hide the internals of a cluster from the outside world. This means that the organization of the cluster should be shielded from applications. To this end, most clusters use a single entry point that can hand off messages to servers in the cluster. A challenging problem is to transparently replace this single entry point by a fully distributed solution.
+
+Advanced object servers have been developed for hosting remote objects. An object server provides many services to basic objects, including facilities for storing objects, or to ensure serialization of incoming requests. Another important role is providing the illusion to the outside world that a collection of data and procedures operating on that data correspond to the concept of an object. This role is implemented by means of object adapters. Object-based systems have come to a point where we can build entire frameworks that can be extended for supporting speciﬁc applications. Java has proven to provide a powerful means for setting up more generic services, exempliﬁed by the highly popular Enterprise Java Beans concept and its implementation. 
+
+An exemplary server for Web-based systems is the one from Apache. Again, the Apache server can be seen as a general solution for handling a myriad of HTTP-based queries. By offering the right hooks, we essentially obtain a ﬂexibly conﬁgurable Web server. Apache has served as an example not only for traditional Web sites, but also for setting up clusters of collaborative Web servers, even across wide-area networks.
+
+An important topic for distributed systems is the migration of code between different machines. Two important reasons to support code migration are increasing performance and ﬂexibility. When communication is expensive, we can sometimes reduce communication by shipping computations from the server to the client, and let the client do as much local processing as possible. Flexibility is increased if a client can dynamically download software needed to communicate with a speciﬁc server. The downloaded software can be speciﬁcally targeted to that server, without forcing the client to have it preinstalled.
+
+Code migration brings along problems related to usage of local resources for which it is required that either resources are migrated as well, new bindings to local resources at the target machine are established, or for which systemwide network references are used. Another problem is that code migration requires that we take heterogeneity into account. Current practice indicates that the best solution to handle heterogeneity is to use virtual machines. These can take either the form of process virtual machines as in the case of, for example, Java, or through using virtual machine monitors that effectively allow the migration of a collection of processes along with their underlying operating system.
 
 
 
@@ -893,6 +1088,16 @@ The local storage that comes with an instance is transient: when the instance st
 
 
 
+
+
+
+
+
+
+
+
+
+An overlay network is a computer network that is built on top of another network. Wikipedia
 
 
 ### Power usage effectiveness (PUE) ###
