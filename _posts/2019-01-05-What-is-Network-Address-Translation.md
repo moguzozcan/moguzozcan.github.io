@@ -1,6 +1,6 @@
 ---
 title: "What is Network Address Translation"
-date: 2018-12-23
+date: 2018-01-05
 categories: 
   - Network Address Translation, NAT
 ---
