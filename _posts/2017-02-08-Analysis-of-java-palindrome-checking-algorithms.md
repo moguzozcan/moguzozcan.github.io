@@ -2,7 +2,7 @@
 title: "Analysis of Java Palindrome Checking Algorithms"
 date: 2017-02-08
 categories: 
-  - Jekyll
+  - Java Palindrome Checking
 ---
 
 Today I've received a task from a company to get a remote job. One of the questions was, "Write an efficient algorithm to check if

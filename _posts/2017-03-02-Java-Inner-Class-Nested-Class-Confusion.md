@@ -2,7 +2,9 @@
 title: "Inner Class Nested Class Confusion in Java"
 date: 2017-03-02
 categories: 
-  - Jekyll
+  - Inner Class
+  - Nested Class
+  - Java
 ---
 
 Hello everyone,

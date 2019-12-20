@@ -2,7 +2,8 @@
 title: "The Good Read Blogs"
 date: 2018-01-10
 categories: 
-  - Jekyll
+  - Blogs
+  - Good Reads
 ---
 
 This is the first post of 2018. I have created a tracker for myself, where I am planning to plan my life in weekly manner. One of my tracker

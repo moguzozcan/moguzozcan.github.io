@@ -2,7 +2,8 @@
 title: "Review Binary Trees and Binary Search Trees"
 date: 2017-07-26
 categories: 
-  - Jekyll
+  - Binary Tree
+  - Binary Search Tree
 ---
 
 Hi guys, 

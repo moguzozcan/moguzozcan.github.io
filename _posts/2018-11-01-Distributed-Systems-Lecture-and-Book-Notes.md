@@ -2,7 +2,8 @@
 title: "Distributed Systems Lecture and Book Notes"
 date: 2018-11-01
 categories: 
-  - Distributed Systems, Book Notes
+  - Distributed Systems
+  - Book Notes
 ---
 
 # Chapter 1 Introduction #

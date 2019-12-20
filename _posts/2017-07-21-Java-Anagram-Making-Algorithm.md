@@ -2,7 +2,7 @@
 title: "Java Anagram Making Algorithm"
 date: 2017-07-21
 categories: 
-  - Jekyll
+  - Anagram Making Algorithm
 ---
 
 I've started to work on 30 days of coding challange in hackerrank. The 2nd challange I've solved was is "Given two strings,  

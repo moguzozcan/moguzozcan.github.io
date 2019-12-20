@@ -2,7 +2,8 @@
 title: "Git filter-branch experience"
 date: 2017-12-20
 categories: 
-  - Jekyll
+  - git
+  - filter-branch
 ---
 
 In our project, two of our collegues mistakenly pushed big files into our repository. One of them was a huge debian package, which was

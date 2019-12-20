@@ -2,7 +2,9 @@
 title: "How to sort Java Map Collection"
 date: 2017-02-10
 categories: 
-  - Jekyll
+  - Sorting
+  - Map
+  - Java
 ---
 
 Today, I was dealing with another question, and I needed to sort a HashMap in Java. I realized that I've niether tried nor needed sorting

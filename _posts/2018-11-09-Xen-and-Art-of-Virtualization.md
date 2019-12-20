@@ -2,7 +2,8 @@
 title: "What’s the difference between a thread and a process?"
 date: 2018-11-08
 categories: 
-  - Thread, Process
+  - Thread
+  - Process
 ---
 
 Xen, an x86 virtual machine monitor which

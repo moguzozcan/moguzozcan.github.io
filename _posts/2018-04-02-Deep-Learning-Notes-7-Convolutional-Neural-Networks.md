@@ -2,7 +2,9 @@
 title: "Deep Learning Notes Convolutional Neural Networks"
 date: 2018-04-02
 categories: 
-  - Convolutional Neural Networks, CNN, Deep Learning
+  - Convolutional Neural Networks
+  - CNN
+  - Deep Learning
 ---
 
 In this post, I'll coptinue to share my notes in CS231N course that is thought at Stanford University. 

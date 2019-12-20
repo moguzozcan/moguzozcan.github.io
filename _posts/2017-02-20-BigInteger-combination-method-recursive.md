@@ -2,7 +2,8 @@
 title: "BigInteger Recursive Combination Method"
 date: 2017-02-20
 categories: 
-  - Jekyll
+  - BigInteger
+  - Recursive Combination
 ---
 
 Hello guys,

@@ -2,7 +2,8 @@
 title: "Matrix Multiplication With MapReduce"
 date: 2018-03-12
 categories: 
-  - Map Reduce, Big Data
+  - Map Reduce
+  - Big Data
 ---
 
 MapReduce is a programming model that Google came up with to handle computation of their huge large scale data. It uses a distributed 

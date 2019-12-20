@@ -2,7 +2,8 @@
 title: "Sorting: Bubble Sort"
 date: 2017-08-10
 categories: 
-  - Jekyll
+  - Sorting
+  - Bubble Sort
 ---
 
 Today's Cracking the Coding Interview Challenge is <a href="https://www.hackerrank.com/challenges/ctci-find-the-running-medianhttps://www.hackerrank.com/challenges/ctci-bubble-sort/problem"> 

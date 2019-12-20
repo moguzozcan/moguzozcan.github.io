@@ -2,7 +2,7 @@
 title: "The Must Know Topics from CTCI"
 date: 2018-01-21
 categories: 
-  - Jekyll
+  - Cracking The Coding Interview
 ---
 
 I am reading Cracking The Coding Interview book again and there is a table that every one should know at basics. Today I am talking about them in a very basic manner.

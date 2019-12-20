@@ -2,7 +2,8 @@
 title: "Ever Wonder Ping TTL Time-to-Live"
 date: 2018-10-21
 categories: 
-  - Linux Command, Ping
+  - Linux Command
+  - Ping
 ---
 
 Have you ever wonder what is the meaning of TTL, that occurs when you ping a website. If you never cared about them, let's briefly explain what it is.

@@ -2,7 +2,8 @@
 title: "Introduction to Data Structures and Algorithms"
 date: 2017-02-21
 categories: 
-  - Jekyll
+  - Data Structures
+  - Algorithms
 ---
 
 In this post, I'll talk about the DS and Algorithms topic in general. These topics are the core of the "Computer Science", so they need to

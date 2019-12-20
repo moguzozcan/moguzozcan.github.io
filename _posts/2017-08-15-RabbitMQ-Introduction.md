@@ -2,7 +2,7 @@
 title: "Introduction to RabbitMQ"
 date: 2017-08-15
 categories: 
-  - Jekyll
+  - RabbitMQ
 ---
 
 Let's temper into RabbitMQ. 

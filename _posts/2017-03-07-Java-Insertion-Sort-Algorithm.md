@@ -2,7 +2,8 @@
 title: "Insertion Sort Algorithm in Java"
 date: 2017-03-07
 categories: 
-  - Jekyll
+  - Sorting
+  - Insertion Sort
 ---
 
 Average and worst complexity is O(N^2), so this algorthm is not suitable for large data sets. In this algorithm, elements are sorted one at a time. In real world this algorithm is like sorting playing cards in our hands. 

@@ -2,7 +2,9 @@
 title: "Rules of Thumb of Data Engineering"
 date: 2018-11-08
 categories: 
-  - Amdahl’s Law, Moore's Law, Gilbert's Law
+  - Amdahl’s Law
+  - Moore's Law
+  - Gilbert's Law
 ---
 
 This paper documents some of the main rules we use in engineering database systems.

@@ -2,7 +2,8 @@
 title: "Java HashMap vs. HashTable"
 date: 2017-07-23
 categories: 
-  - Jekyll
+  - HashMap
+  - HashTable
 ---
 
 When I was solving the third challenge in Cracking the Coding Interview tasks in hackerrank, I've come accross with HashTables. Then I 

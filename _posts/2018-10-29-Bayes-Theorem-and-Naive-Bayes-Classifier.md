@@ -2,7 +2,10 @@
 title: "Bayes Theorem and Naive Bayes Classifier"
 date: 2018-10-29
 categories: 
-  - Bayes Theorem, Naive Bayes Classifier, Sentiment Analysis, Natural Language Processing
+  - Bayes Theorem
+  - Naive Bayes Classifier
+  - Sentiment Analysis
+  - Natural Language Processing
 ---
 
 One of the hardest topics in *NLP (Natural Language Processing)* is the Sentiment Analysis topic. It is to decide whether the given document, sentence, aspect, or word is positive, neutral or negative in terms of sentiment. Sentiment analysis is used for spam checking in e-mails and other areas is real life. For this, *Naive Bayes Classifier* is used and it is based on the *Bayes Theorem* as the name suggests. In this post, I'll try to explain them in detail.  

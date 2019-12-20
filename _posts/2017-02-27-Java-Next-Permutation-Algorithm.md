@@ -2,7 +2,8 @@
 title: "Next Permutation Algorithm in Java"
 date: 2017-02-27
 categories: 
-  - Jekyll
+  - Next Permutation
+  - Java
 ---
 
 In this post, I will tell you how to write the next permutation algorithm in Java. I've encountered this problem in one of the hackerrank 

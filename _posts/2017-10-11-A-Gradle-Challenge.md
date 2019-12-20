@@ -2,7 +2,7 @@
 title: "A Gradle Challenge"
 date: 2017-10-11
 categories: 
-  - Jekyll
+  - Gradle
 ---
 
 At work we had a situation that some of our used shared project should be in the artifactory, but we do not have any artifactory yet :) 

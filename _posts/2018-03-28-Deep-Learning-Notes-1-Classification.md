@@ -2,7 +2,8 @@
 title: "Deep Learning Notes 1 Classificaiton"
 date: 2018-03-28
 categories: 
-  - Image Classification, Deep Learning
+  - Image Classification
+  - Deep Learning
 ---
 
 In this post, I'll share my notes in CS231N course that is thought at Stanford University. 

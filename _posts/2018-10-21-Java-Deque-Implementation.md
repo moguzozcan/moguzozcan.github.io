@@ -2,7 +2,10 @@
 title: "Java Deque Implementation"
 date: 2018-10-21
 categories: 
-  - Java, Deque, Stack, Queue
+  - Java
+  - Deque
+  - Stack
+  - Queue
 ---
 
 The Stack and Queue classes in Java gets a little complex after they are combined in Deque interface, at least for me:) There was a Stack class used for stack related problems in Java, but now it is combined with the Deque interface implementation which is ArrayDeque.  

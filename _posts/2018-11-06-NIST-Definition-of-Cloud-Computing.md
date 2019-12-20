@@ -2,7 +2,9 @@
 title: "NIST Definition of Cloud Computing"
 date: 2018-11-06
 categories: 
-  - Cloud Computing, NIST, The National Institute of Standards and Technology
+  - Cloud Computing
+  - NIST
+  - The National Institute of Standards and Technology
 ---
 
 In this post I'll share the official definition of the cloud computing defined by NIST, The National Institute of Standards and Technology. 

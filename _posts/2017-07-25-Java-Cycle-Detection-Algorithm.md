@@ -2,7 +2,7 @@
 title: "Java Cycle Detection Algorithm"
 date: 2017-07-25
 categories: 
-  - Jekyll
+  - Cycle Detection Algorithm
 ---
 
 Hi guys, 

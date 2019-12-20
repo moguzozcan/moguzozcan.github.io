@@ -2,7 +2,8 @@
 title: "Quick Sort Algorithm in Java"
 date: 2017-07-14
 categories: 
-  - Jekyll
+  - Sorting
+  - Quick Sort
 ---
 
 Quick sort algorithm is a kind of divide and conquer algoritm. Quick sort is also known as Partition-exchange sort. There are three 

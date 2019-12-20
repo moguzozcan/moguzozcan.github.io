@@ -2,7 +2,7 @@
 title: "Finding Similar Items Notes From MMDS"
 date: 2018-02-27
 categories: 
-  - Jekyll
+  - MMDS
 ---
 
 In this post, I will share my notes for the Big Data Analytics course chapter three which is Finding Similar Items. A fundamental data-mining problem is to examine data for “similar” items. There are three essential techniques to find similar documents. They are:
