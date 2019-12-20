@@ -2,7 +2,8 @@
 title: "What is Network Address Translation"
 date: 2018-01-05
 categories: 
-  - Network Address Translation, NAT
+  - Network Address Translation
+  - NAT
 ---
 
 I made a list named "post topics", where I am storing the topics that I would like to first learn and then share with you. Since I am in a PhD break, I will focus more on the writing and coding. The topic of today is **NAT**, Network Address Translation. I've heard about it many times, but I never exactly know it's details and what it is doing, why it is used etc. Let's dive deep and learn!

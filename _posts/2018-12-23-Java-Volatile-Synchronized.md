@@ -2,7 +2,9 @@
 title: "Java Volatile Keyword vs. Synchronized"
 date: 2018-12-23
 categories: 
-  - Java, Volatile, Synchronized
+  - Java
+  - Volatile
+  - Synchronized
 ---
 
 This topic is greatly explained in [1], which is a very good Java blog. Here I'll try to summarize those information in my own words to remember them in the future. 

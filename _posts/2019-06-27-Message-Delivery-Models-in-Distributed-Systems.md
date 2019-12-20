@@ -2,7 +2,11 @@
 title: "Message Delivery Models in Distributed Systems"
 date: 2019-06-27
 categories: 
-  - Distibuted Systems, Message Delivery Models, Exacly Once, At Least Once, At Most Once
+  - Distibuted Systems
+  - Message Delivery Models
+  - Exacly Once 
+  - At Least Once 
+  - At Most Once
 ---
 
 **Exacly Once Delivery**

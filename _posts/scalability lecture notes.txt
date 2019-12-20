@@ -1,0 +1,118 @@
+Notes of CS75 (Summer 2012) Lecture 9 Scalability Harvard Web Development David Malan
+
+https://www.youtube.com/watch?v=-W9F__D3oY4
+
+Web Host vs VPS
+web host: security, ftp?
+vps: get own copy, divide with hypervisor and give user run multiple vm's 
+
+
+Vertical Scaling: Add more resource to the machine, physical limits in real world.
+
+SATA, PATA 7200 rpm
+SAS Serially attached scazy 1500 rpm
+Better than mechanical, ssd solid state disk no rotation
+
+Horizontal scaling: use cheaper number of machines
+Distribute requests over machines
+Load balancing: Distribute and balance request to backend servers
+IP or the load balancer and let LB to deal with redirecting, backend servers have private IP addresses
+IPV4 is running out, so private IP is better
+Depends on the load, send request to backend servers
+Servers have to have the same content, or dedicated servers for htmls, gif, phps etc
+
+DNS: host name to ip address - Round robin, 
+One server gets harder requests, and other is basic request, no way to know, one server get heavy users, 
+
+cache's do not do the same dns request over and over again. Chrome or OS caches responses of the DNS.
+Caching contribute to the overloading of backend servers
+
+Sessions and cookies:
+Sessions are specific to server, then session lost and you may need to login again, session cookie.
+Change servers to php server, gif server etc. If one of them crashes, and if one overloads for a single server, we need horizontal scaling
+
+Session state: file server, connected to all servers and store session data to file server,
+Put session to Load balancer
+What happens if session server is dead?, robustness redundancy
+
+RAID:
+
+Redundant Array of Independent Disk
+RAID0: 2 Harddrive stripe data accross them, speed double since we write to 1 then 2 then 1
+RAID1: Mirror data, duplicate, if die, data stays
+RAID5: Versatile, 3 drive 4 or 5 drives, one is used for redundancy.
+RAID6: Two drives can die, and update again
+RAID10: Stripe and reducdancy, 4 drives RAID 0 and 1
+
+Decrease prob of downtime
+
+Shared storege: Single point of failure
+
+Load Balancer
+ELB, LVS Software
+Cisco, Citrix Hardware
+Expensive because of the support contract and so.
+
+Sticky sessions
+Solution: Shared storage,
+Cookies? - Store the id of the server you want to go
+Store a random number and LB can configure the id of the backend server
+
+Caching:
+Can be bad if value changed and we have the old one
+Memcached,
+Store html, no need to generate html again. Serve static content for performance, file based caching approach
+Space ? 
+Changing the html pages is impossible for craig list
+
+MySQL Query Cache:
+Not the first time but it will get speed for the next ones.
+
+Memcached: Facebook
+memory cache. Store in RAM, php
+Save result in RAM and reach from the RAM, disk is slow spinning especially. 
+Cache is finite, can get big and cannot store in machine
+Delete from cache, Garbage Collection, expire objects - FIFO 
+Facebook is read heavy, but both now
+newsfeed 10 20 feed in main page. Cache is compelling
+
+Storage Engine: MySQL InnoDB - support transactions, MYISAM not 
+Memory or heap engine : this table will be lost
+
+Replication - Master - Slave ( Get copy of the master data)
+master and slave are identical advantages:
+- If DB 1 dies, 3 backups, redundancy
+- Topology
+- How FB used this, LB database servers - Open to scale horizontally, direct reads and writes to different db's.
+- Redundancy, balance read request accross different db'same
+- Fault, Writes Single point of failure 
+-- Replication Master 1 -- Master 2, replicate writes to different masters, reducdancy in master db's
+Single point of failure for LB Active Active instead of active passive, heart beat left to right 
+
+Web servers, UI are Tier 1
+
+Partition the db, 
+Redundancy
+
+High Availability
+Replication of two or more servers send heartbeat to each other
+
+Sticky sessions only using LB and no shared state: LB stores user belong to server 1.  
+DB in the web server inside. 
+If Alice is in Server 1 and does some persistance, but when 
+
+
+Data Center redundancy: AWS zones, LB on DNS, geography based LB
+
+Security of the Data Center:
+TCP:80 and 443 SSL will be allowed  22 SSH
+
+Inside DataCenter, only 80 because we don't need the security ssl. 
+Unencrypted traffic
+Security is only on the LB 
+
+Between LB and DB 3306 for MySQL and 5432 for PostgreSQL
+Pretend queries from the outside of the data center
+
+
+

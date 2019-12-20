@@ -1162,6 +1162,88 @@ Finally, an important class of communication protocols in distributed systems is
 
 Another important class of dissemination solutions deploys epidemic protocols. These protocols have proven to be very simple and extremely robust. Apart from merely spreading messages, epidemic protocols can also be efﬁciently deployed for aggregating information across a large distributed system.
 
+# Chapter 5 Naming #
+
+## 5.1 Names, identiﬁers, and addresses ##
+
+An **access point** is yet another, but special, kind of entity in a distributed system. The name of an access point is called an **address**. The address of an access point of an entity is also simply called an address of that entity.
+
+A true identiﬁer is a name that has the following properties:
+
+1. An identiﬁer refers to at most one entity.
+2. Each entity is referred to by at most one identiﬁer.
+3. An identiﬁer always refers to the same entity (i.e., it is never reused).
+
+**human-friendly** name is generally represented as a character string.
+
+naming system maintains a name-to-address binding which in its simplest form is just a table of (name, address) pairs.
+
+**5.2 Flat naming**
+
+two simple solutions for locating an entity: broadcasting and forwarding pointers. Both solutions are mainly applicable only to local-area networks.
+
+**Broadcasting**
+
+This principle is used in the Internet Address Resolution Protocol (ARP) to ﬁnd the data-link address of a machine when given only an IP address 
+
+**Forwarding pointers**
+
+when an entity moves from A to B, it leaves behind in A a reference to its new location at B.
+
+**Home-based approaches**
+
+keeps track of the current location of an entity
+
+**Distributed hash tables**
+
+**General mechanism**
+
+Chord system being a typical representative.
+
+FTp[i] = succ(p + 2(to)(i−1))
+
+Chord figure and logic
+
+
+**5.3 Structured naming**
+
+Flat names are good for machines, but are generally not very convenient for humans to use. As an alternative, naming systems generally support structured names that are composed from simple, human-readable names. Not only ﬁle naming, but also host naming on the Internet follows this approach. 
+
+
+
+The naming graph shown in Figure 5.11 has one node, namely n0, which
+has only outgoing and no incoming edges. Such a node is called the root
+(node) of the naming graph. Although it is possible for a naming graph to
+have several root nodes, for simplicity, many naming systems have only one.
+Each path in a naming graph can be referred to by the sequence of labels
+corresponding to the edges in that path, such as N:[label1, label2, ..., labeln],
+where N refers to the ﬁrst node in the path. Such a sequence is called a path
+name. If the ﬁrst node in a path name is the root of the naming graph, it is
+called an absolute path name. Otherwise, it is called a relative path name.
+
+
+<figure>
+    <a href="/assets/images/NamingTree.png"><img src="/assets/images/NamingTree.png"></a>
+</figure>
+
+
+Implementing the Unix naming graph
+
+
+
+
+
+
+
+
+
+
+• An omission failure occurs when a component fails to take an action that
+it should have taken.
+• A commission failure occurs when a component takes an action that it
+should not have taken
+
+
 
 
 

@@ -1,5 +1,4 @@
 ﻿- Marcura tests
-- volatile keyword, volatile vs synchronized
 - some design patterns
 - put CS549 homework into repository
 - SOLID Principles  - https://blog.bitsrc.io/solid-principles-every-developer-should-know-b3bfa96bb688
@@ -10,8 +9,6 @@
 -IOT için docker image?
 
 - (NATed) ﬁrewall?? ﬁrewalls restrict UDP trafﬁc??
-
-Network Address Translation (NAT) technology.??
 
 Distributed Hash Table, chord
 
@@ -24,3 +21,31 @@ what is hypervisor?
 -KMP Pattern Search Algorithm
 
 http://tutorials.jenkov.com/java-concurrency/index.html
+
+
+Kemal Oflazer paper notes
+
+
+Triangle aşağıda 
+Storage hierarchy
+L1 -LW
+RAM 
+Disk
+Tape
+
+
+jdwp
+REMOTE DEBugging
+
+KMP, Robin Karp hash, string matching algorithms
+
+various levels of caching in a modern OS?
+
+reactive programming
+
+functional programming
+
+Tail call recursion: recursion is at the end
+
+
+markle tree hash tree
