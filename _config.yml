@@ -88,7 +88,7 @@ analytics:
   provider               : "google" # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          : "UA-133844442-1"
-
+google_analytics: UA—133844442-1
 
 # Site Author
 author:
