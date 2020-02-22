@@ -49,3 +49,11 @@ Tail call recursion: recursion is at the end
 
 
 markle tree hash tree
+
+Strategy pattern vs.  Factory pattern blog
+
+declarative vs imperative programming
+
+Precision vs recall?? Github first issue ML
+
+Mac useful stuff
