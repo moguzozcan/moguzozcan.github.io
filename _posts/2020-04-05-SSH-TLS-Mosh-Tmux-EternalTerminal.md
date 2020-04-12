@@ -2,8 +2,17 @@
 title: "SSH, TLS, Mosh, Tmux, Eternal Terminal"
 date: 2020-04-05
 categories: 
-  - Imperative Programming
-  - Declarative Programming
+  - Shell
+  - Bash
+  - zsh
+  - SSH
+  - Mosh
+  - Eternal Terminal
+  - Tmux
+  - Sandboxing
+  - Container
+  - Virtual Machine
+  - VM
 ---
 
 I was using iTerm2 and connecting to my devservers through "ssh address_of_server", however i realized that if i try to open more than one connection for the same devserver, my previous connections are dropped. 
@@ -32,12 +41,42 @@ zsh is highly compatible with the Bourne shell (sh) and mostly compatible with b
 
 **What is Login Shell?**
 
+Login shells are similar to other shells by one or more initial setup scripts are invoked. Their names generally includes 'profile' word. 
+Login shell is the place we login, it is shown with a hyphen '-' if you do ```ps -f``` 
+
+A user must have at least one login shell per host, this is required to specify actions that you want to happen only once. 
+
+There are different files sourced when login shell is invoked:
+
+if `/etc/profile` exists, source (run) it
+if `~/.bash_profile` exists, source (run) it
+if `~/.bash_login` exists, source (run) it
+if `~/.profile` exists, source (run) it
+
+Ideally, login shell files, `.login` or `.profile` should set the inheritable settings and then, `.bashrc` should handle the settings that are not inheritable like `set`.
+
+Another thing is that login shells should do the heavy lifting jobs, like resource-incentive actions like running certain processes after each login, not after each time you open a terminal. 
+
+**What is Non-Login Shell?**
+
+`/etc/bash.bashrc` and `~/.bashrc` is the order of the file. 
+
+
+- The `rc` at the end of `bashrc`, `zshrc`, or `vimrc` is the abbreviation for `runcom`, which is the run commands. 
+
+
+`.zsh_history` file stores all the command that you have used previously
+
 
 
 **What is Interactive Shell?**
 
+Reads input from standard-input 
 
-**What is Non-Login Shell?**
+`.bashrc` file is run for interactive shell invocations. 
+
+`/etc/bashrc` can be used by both the `~/.bash_profile` and `~/.bashrc` file. This means that it is sourced whether this is a login or non-login shell. 
+
 
 
 
@@ -75,13 +114,30 @@ The following image from Wikipedia is a good visualization of the differences be
 
 
 
-**System Call**
-
-
-
 **Shell** is basically the terminal that you use to communicate with the Kernel.  
 
+First Shell is creted by Stephen Bourne, the Bourne Shell (sh 1977) developed in C. [7]
 
+C Shell (csh 1978) Bill Joy, scripting language similar to C. 
+
+Korn Shell (ksh 1983) David Korn, combined Bourne and C shell, compiles with POSIX. Backward compatible with Bourne Shell.
+
+Bourne-Again Shell (bash 1989) Brian Fox for GNU project, replacement of the Bourne Shell. Filename globbing, piping, command substitution and control structures for conditional testing and iteration. 
+
+zsh 1990
+
+POSIX 1992
+
+
+sh vs bash?
+
+Shell script, Shell Command Language, is a programming language which is compatible to POSIX standards. So, Shell
+
+/bin/sh symlink or hardlink to POSIX system.
+
+Bash was shell compatible but, it is not a POSIX shell, it is a dialect of POSIX shell. 
+
+Bash is one of the implementations of the Shell Command Language.
 
 
 **Boot Loader**
@@ -97,7 +153,6 @@ The two common boot loaders for Linux are: LILO (LInux LOader) and LOADLIN (LOAD
 </figure>
 
 
-
 **Linux vs Unix**
 
 Unix 
@@ -107,9 +162,9 @@ Linux is written by Linus Torvalds in 1991 with C programming language and relea
 
 **Library functions Vs System calls**
 
-Library functions are nothing but a functions written in some kind of software library, like a strlen() in C. There are two types of library functions: functions which do not call a system call and and the functions which do call a system call. For instance, fopen() is a library function, where is calls the open() system call underneath. 
+**Library functions** are nothing but a functions written in some kind of software library, like a strlen() in C. There are two types of library functions: functions which do not call a system call and and the functions which do call a system call. For instance, fopen() is a library function, where is calls the open() system call underneath. 
 
-The main difference of System calls is that, they reach to the system kernel. For example socket() is a system call, it reaches to the kernel to be able to create a network socket. They are the entry points to the OS. [6]
+The main difference of **system calls** is that, they reach to the system kernel. For example socket() is a system call, it reaches to the kernel to be able to create a network socket. They are the entry points to the OS. [6]
 
 You can debug a library function whereas, it is impossible to debug the system calls. 
 
@@ -121,6 +176,30 @@ The following figure is really great explaning the flow between syscalls and lib
 </figure>
 
 
+**Sandboxing vs VM vs Container**
+
+**VM:**
+- Bigger security, isolated with the OS
+- A security vulnerability in one VM cannot spread to another VM or even the host machine.
+- Kernel and processes are consuming memory
+- Has its own disk
+
+
+**Container:**
+- Security is not good, container escape vulnerability
+- Containers does not have kernel and services so less size
+- chroot jails
+
+
+**Sandbox:** is an isolated environment on a network, they are used to execute a suspicious in a safe manner. A code execution in sandbox cannot harm the host machine or the network. The goal of sandboxing is to take unknown files and detonate them within one of the VMs to determine if the file is safe for installation. This is mostly related to security. [8], [9]
+
+- What happens in sandbox, stays in sandbox :)
+- OS X is supporting sandboxing since OS X Lion released in 2011. The App Store requires applications to be sandboxed since March 2012. Microsoft Windows does not support app sandboxing by default, but it allows some of apps to be sandboxed. 
+
+
+
+
+**POSIX**
 
 
 **References**
@@ -136,5 +215,13 @@ The following figure is really great explaning the flow between syscalls and lib
 [5] https://www.cs.tau.ac.il/telux/lin-club_files/linux-boot/slide0002.htm
 
 [6] https://www.thegeekstuff.com/2012/07/system-calls-library-functions/
+
+[7] https://www.youtube.com/watch?v=aLjFxiWP5uQ
+
+[8] https://searchsecurity.techtarget.com/answer/Whats-the-difference-between-software-containers-and-sandboxing
+
+[9] https://en.wikipedia.org/wiki/Sandbox_(computer_security)
+
+[10] https://stackoverflow.com/questions/18186929/what-are-the-differences-between-a-login-shell-and-interactive-shell
 
 
